@@ -50,6 +50,7 @@ function generateUserSummary(event) {
       console.log(data);
       // function that makes the users summary visible in a chart
       renderUserData(data);
+      saveToLocal(data);
     });
 }
 
@@ -97,4 +98,68 @@ function renderUserData(userData) {
     document.getElementById("chartDoughnut"),
     configDoughnut
   );
+}
+
+console.log(localStorage.getItem("calories"));
+
+function renderUserDataRefresh() {
+  //   if (localStorage.getItem("calories")) {
+  var userCard = $(`
+  <div class="flex justify-center">
+  <h1 class="font-extrabold"> Target Calories: </h1>
+  <p>${localStorage.getItem("calories")}</p>
+  </div>
+    `);
+
+  $("#userCard").append(userCard);
+
+  const dataDoughnut = {
+    labels: [
+      `Protein ${localStorage.getItem("protein")}g`,
+      `Fat ${localStorage.getItem("fat")}g`,
+      `Carbs ${localStorage.getItem("carbs")}g`,
+    ],
+    datasets: [
+      {
+        label: "Nutrition",
+        data: [
+          localStorage.getItem("protein"),
+          localStorage.getItem("fat"),
+          localStorage.getItem("carbs"),
+        ],
+        backgroundColor: [
+          "rgb(133, 105, 241)",
+          "rgb(164, 101, 241)",
+          "rgb(101, 143, 241)",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  };
+
+  const configDoughnut = {
+    type: "doughnut",
+    data: dataDoughnut,
+    options: {},
+  };
+
+  var chartBar = new Chart(
+    document.getElementById("chartDoughnut"),
+    configDoughnut
+  );
+}
+if (localStorage.getItem("calories")) {
+  renderUserDataRefresh();
+}
+
+function saveToLocal(userData) {
+  var protein = Math.round(userData.data.balanced.protein);
+  var fat = Math.round(userData.data.balanced.fat);
+  var carbs = Math.round(userData.data.balanced.carbs);
+  var calories = Math.round(userData.data.calorie);
+
+  localStorage.setItem("protein", protein);
+  localStorage.setItem("fat", fat);
+  localStorage.setItem("carbs", carbs);
+  localStorage.setItem("calories", calories);
 }
