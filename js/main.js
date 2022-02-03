@@ -48,8 +48,10 @@ function renderUserData(userData) {
   var carbs = Math.round(userData.data.balanced.carbs);
 
   var userCard = $(`
-  <h1 class="font-extrabold"> Target Calories </h1>
-  <p>${userData.data.calorie}</p>
+  <div class="flex justify-center">
+  <h1 class="font-extrabold"> Target Calories: </h1>
+  <p>${Math.round(userData.data.calorie)}</p>
+  </div>
     `);
 
   $('#userCard').append(userCard);
