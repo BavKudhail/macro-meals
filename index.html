@@ -43,7 +43,7 @@
         </p>
 
         <!-- user form -->
-        <form class="mt-8 space-y-6" action="#" method="POST">
+        <form class="mt-8 space-y-6" id="user-form" action="#" method="POST">
           <input type="hidden" name="remember" value="true" />
           <div class="rounded-md shadow-sm -space-y-px">
             <!-- age -->
@@ -98,17 +98,20 @@
             <div class="flex justify-center">
               <div class="mb-3 w-full">
                 <select
+                  id="goal"
                   class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-b-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   aria-label="Default select example"
                 >
-                  <option selected>Select your goal</option>
-                  <option value="1">Maintain</option>
-                  <option value="2">Mildlose</option>
-                  <option value="3">Weightlose</option>
-                  <option value="3">ExtremeLose</option>
-                  <option value="3">Mildgain</option>
-                  <option value="3">WeightGain</option>
-                  <option value="3">ExtremeGain</option>
+                  <div>
+                    <option selected>Select your goal</option>
+                    <option value="maintain">Maintain</option>
+                    <option value="mildlose">Mildlose</option>
+                    <option value="weightlose">Weightlose</option>
+                    <option value="extremelose">ExtremeLose</option>
+                    <option value="mildgain">Mildgain</option>
+                    <option value="weightgain">WeightGain</option>
+                    <option value="extremegain">ExtremeGain</option>
+                  </div>
                 </select>
               </div>
             </div>
@@ -122,7 +125,7 @@
                 class="form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none text-slate-500"
                 min="1"
                 max="7"
-                id="customRange2"
+                id="activity-level"
               />
             </div>
           </div>
@@ -130,7 +133,7 @@
           <div class="flex space-x-2 justify-center">
             <div>
               <button
-                type="button"
+                type="submit"
                 class="inline-block px-6 py-2.5 bg-rose-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
               >
                 Generate
@@ -142,5 +145,8 @@
     </div>
     <!-- tailwind js -->
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
