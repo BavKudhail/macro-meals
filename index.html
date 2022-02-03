@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tailwild css exp -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
+    />
+    <!-- tailwind css link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Meal-Planner</title>
+  </head>
+  <body>
+    <div
+      class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <div class="max-w-md w-full space-y-8 bg-purple-200 px-5 py-5 rounded-lg">
+        <!-- logo  -->
+        <div>
+          <img
+            class="mx-auto h-12 w-auto"
+            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+            alt="Workflow"
+          />
+          <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Welcome to *LOGO*
+          </h2>
+        </div>
+
+        <p class="mt-2 text-center text-sm text-gray-600">
+          Insert your details for a custom meal plan.
+        </p>
+
+        <!-- user form -->
+        <form class="mt-8 space-y-6" id="user-form" action="#" method="POST">
+          <input type="hidden" name="remember" value="true" />
+          <div class="rounded-md shadow-sm -space-y-px">
+            <!-- age -->
+            <div>
+              <label for="age" class="sr-only">Age</label>
+              <input
+                id="age"
+                name="age"
+                type="text"
+                required
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Age"
+              />
+            </div>
+            <!-- gender -->
+            <div>
+              <label for="gender" class="sr-only">Gender</label>
+              <input
+                id="gender"
+                name="gender"
+                type="gender"
+                required
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Gender"
+              />
+            </div>
+            <!-- height -->
+            <div>
+              <label for="height" class="sr-only">Height</label>
+              <input
+                id="height"
+                name="height"
+                type="height"
+                required
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Height"
+              />
+            </div>
+            <!-- weight -->
+            <div>
+              <label for="weight" class="sr-only">Weight</label>
+              <input
+                id="weight"
+                name="weight"
+                type="weight"
+                required
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Weight"
+              />
+            </div>
+            <!-- goal -->
+            <div class="flex justify-center">
+              <div class="mb-3 w-full">
+                <select
+                  id="goal"
+                  class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-b-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  aria-label="Default select example"
+                >
+                  <div>
+                    <option selected>Select your goal</option>
+                    <option value="maintain">Maintain</option>
+                    <option value="mildlose">Mildlose</option>
+                    <option value="weightlose">Weightlose</option>
+                    <option value="extremelose">ExtremeLose</option>
+                    <option value="mildgain">Mildgain</option>
+                    <option value="weightgain">WeightGain</option>
+                    <option value="extremegain">ExtremeGain</option>
+                  </div>
+                </select>
+              </div>
+            </div>
+            <!-- activity level -->
+            <div class="relative pt-1">
+              <label for="customRange2" class="form-label"
+                >Activity Level</label
+              >
+              <input
+                type="range"
+                class="form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none text-slate-500"
+                min="1"
+                max="7"
+                id="activity-level"
+              />
+            </div>
+          </div>
+          <!-- generate button -->
+          <div class="flex space-x-2 justify-center">
+            <div>
+              <button
+                type="submit"
+                class="inline-block px-6 py-2.5 bg-rose-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              >
+                Generate
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- tailwind js -->
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
