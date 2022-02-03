@@ -156,6 +156,7 @@ function renderUserDataRefresh() {
 }
 if (localStorage.getItem("calories")) {
   renderUserDataRefresh();
+  removeForm();
 }
 
 function saveToLocal(userData) {
