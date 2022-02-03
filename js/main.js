@@ -7,6 +7,7 @@ function generateUserSummary(event) {
   console.log("submitted form");
 
   // assigning user values
+  var formContainer = $("#form-container");
   var age = $("#age").val();
   console.log(age);
   var gender = $("#gender").val();
@@ -51,7 +52,12 @@ function generateUserSummary(event) {
       // function that makes the users summary visible in a chart
       renderUserData(data);
       saveToLocal(data);
+      removeForm();
     });
+}
+
+function removeForm() {
+  $("#form-container").addClass("form-none");
 }
 
 function renderUserData(userData) {
@@ -150,6 +156,7 @@ function renderUserDataRefresh() {
 }
 if (localStorage.getItem("calories")) {
   renderUserDataRefresh();
+  removeForm();
 }
 
 function saveToLocal(userData) {
