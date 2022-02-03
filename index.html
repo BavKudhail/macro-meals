@@ -40,7 +40,7 @@
               />
             </div>
             <!-- gender -->
-            <div>
+            <!-- <div>
               <label for="gender" class="sr-only">Gender</label>
               <input
                 id="gender"
@@ -50,7 +50,24 @@
                 class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Gender"
               />
-            </div>
+            </div> -->
+            <div class="flex justify-center">
+                <div class=" w-full">
+                  <select
+                    id="gender"
+                    class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    aria-label="Default select example"
+                    
+                  >
+                    <div>
+                      <option selected class="text-gray-100">Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </div>
+                  </select>
+                </div>
+              </div>
+
             <!-- height -->
             <div>
               <label for="height" class="sr-only">Height</label>
@@ -85,13 +102,10 @@
                 >
                   <div>
                     <option selected>Select your goal</option>
-                    <option value="maintain">Maintain</option>
-                    <option value="mildlose">Mildlose</option>
-                    <option value="weightlose">Weightlose</option>
-                    <option value="extremelose">ExtremeLose</option>
-                    <option value="mildgain">Mildgain</option>
-                    <option value="weightgain">WeightGain</option>
-                    <option value="extremegain">ExtremeGain</option>
+                    <option value="maintain">Maintain</option>                   
+                    <option value="weightlose">Weight Loss</option>
+                    <option value="weightgain">Weight Gain</option>
+                    
                   </div>
                 </select>
               </div>
@@ -99,13 +113,13 @@
             <!-- activity level -->
             <div class="relative pt-1">
               <label for="customRange2" class="form-label">Activity Level</label>
-              <input
+              <div class="flex">Low <input
                 type="range"
-                class="form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none text-slate-500"
+                class="form-range appearance-none w-full h-6 p-3 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none text-purple-500"
                 min="1"
                 max="7"
                 id="activity-level"
-              />
+              /> High</div>
             </div>
           </div>
           <!-- generate button -->
