@@ -1,35 +1,45 @@
 // submit button event listner
-$('#user-form').on('submit', generateUserSummary);
+$("#user-form").on("submit", generateUserSummary);
 
 // generate user summary
 function generateUserSummary(event) {
   event.preventDefault();
-  console.log('submitted form');
+  console.log("submitted form");
 
   // assigning user values
-  var formContainer = $('#form-container');
-  var age = $('#age').val();
+  var formContainer = $("#form-container");
+  var age = $("#age").val();
   console.log(age);
-  var gender = $('#gender').val();
+  var gender = $("#gender").val();
   console.log(gender);
-  var height = $('#height').val();
+  var height = $("#height").val();
   console.log(height);
-  var weight = $('#weight').val();
+  var weight = $("#weight").val();
   console.log(weight);
-  var userGoal = $('#goal').val();
+  var userGoal = $("#goal").val();
   console.log(userGoal);
-  var activitylevel = $('#activity-level').val();
+  var activitylevel = $("#activity-level").val();
   console.log(activitylevel);
 
   // fetching fitness API data
   fetch(
-    // "https://fitness-calculator.p.rapidapi.com/macrocalculator?age=26&gender=male&height=180&weight=70&activitylevel=4&goal=maintain",
-    'https://fitness-calculator.p.rapidapi.com/macrocalculator?age=' + age + '&gender=' + gender + '&height=' + height + '&weight=' + weight + '&activitylevel=' + activitylevel + '&goal=' + userGoal,
+    "https://fitness-calculator.p.rapidapi.com/macrocalculator?age=" +
+      age +
+      "&gender=" +
+      gender +
+      "&height=" +
+      height +
+      "&weight=" +
+      weight +
+      "&activitylevel=" +
+      activitylevel +
+      "&goal=" +
+      userGoal,
     {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'x-rapidapi-host': 'fitness-calculator.p.rapidapi.com',
-        'x-rapidapi-key': '2a61fe40cdmshb25b8249e993d82p1d55cejsn5658af22a824',
+        "x-rapidapi-host": "fitness-calculator.p.rapidapi.com",
+        "x-rapidapi-key": "2a61fe40cdmshb25b8249e993d82p1d55cejsn5658af22a824",
       },
     }
   )
@@ -46,7 +56,7 @@ function generateUserSummary(event) {
 }
 
 function removeForm() {
-  $('#form-container').addClass('form-none');
+  $("#form-container").addClass("form-none");
 }
 
 function renderUserData(userData) {
@@ -60,7 +70,7 @@ function renderUserData(userData) {
 
   var userCard = $(`
   <div class="flex justify-center">
-  <h1 class="font-extrabold"> Target Calories: </h1>
+  <h1 class="font-semibold"> Target Calories: </h1>
   <p>${calories}</p>
   </div>
   <div class="flex justify-center">
@@ -71,36 +81,43 @@ function renderUserData(userData) {
   </div>
    `);
 
-  $('#userCard').append(userCard);
+  $("#userCard").append(userCard);
 
   const dataDoughnut = {
     labels: [`Protein ${protein}g`, `Fat ${fat}g`, `Carbs ${carbs}g`],
     datasets: [
       {
-        label: 'Nutrition',
+        label: "Nutrition",
         data: [protein, fat, carbs],
-        backgroundColor: ['rgb(133, 105, 241)', 'rgb(164, 101, 241)', 'rgb(101, 143, 241)'],
+        backgroundColor: [
+          "rgb(133, 105, 241)",
+          "rgb(164, 101, 241)",
+          "rgb(101, 143, 241)",
+        ],
         hoverOffset: 4,
       },
     ],
   };
 
   const configDoughnut = {
-    type: 'doughnut',
+    type: "doughnut",
     data: dataDoughnut,
     options: {},
   };
 
-  var chartBar = new Chart(document.getElementById('chartDoughnut'), configDoughnut);
+  var chartBar = new Chart(
+    document.getElementById("chartDoughnut"),
+    configDoughnut
+  );
 }
 
-console.log(localStorage.getItem('calories'));
+console.log(localStorage.getItem("calories"));
 
 function renderUserDataRefresh() {
   var userCard = $(`
     <div class="flex justify-center">
-    <h1 class="font-extrabold"> Target Calories: </h1>
-    <p>${localStorage.getItem('calories')}</p>
+    <h1 class="font-semibold"> Target Calories: </h1>
+    <p>${localStorage.getItem("calories")}</p>
     </div>
     <div class="flex justify-center">
     <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
@@ -110,29 +127,44 @@ function renderUserDataRefresh() {
     </div>
       `);
 
-  $('#userCard').append(userCard);
+  $("#userCard").append(userCard);
 
   const dataDoughnut = {
-    labels: [`Protein ${localStorage.getItem('protein')}g`, `Fat ${localStorage.getItem('fat')}g`, `Carbs ${localStorage.getItem('carbs')}g`],
+    labels: [
+      `Protein ${localStorage.getItem("protein")}g`,
+      `Fat ${localStorage.getItem("fat")}g`,
+      `Carbs ${localStorage.getItem("carbs")}g`,
+    ],
     datasets: [
       {
-        label: 'Nutrition',
-        data: [localStorage.getItem('protein'), localStorage.getItem('fat'), localStorage.getItem('carbs')],
-        backgroundColor: ['rgb(133, 105, 241)', 'rgb(164, 101, 241)', 'rgb(101, 143, 241)'],
+        label: "Nutrition",
+        data: [
+          localStorage.getItem("protein"),
+          localStorage.getItem("fat"),
+          localStorage.getItem("carbs"),
+        ],
+        backgroundColor: [
+          "rgb(133, 105, 241)",
+          "rgb(164, 101, 241)",
+          "rgb(101, 143, 241)",
+        ],
         hoverOffset: 4,
       },
     ],
   };
 
   const configDoughnut = {
-    type: 'doughnut',
+    type: "doughnut",
     data: dataDoughnut,
     options: {},
   };
 
-  var chartBar = new Chart(document.getElementById('chartDoughnut'), configDoughnut);
+  var chartBar = new Chart(
+    document.getElementById("chartDoughnut"),
+    configDoughnut
+  );
 }
-if (localStorage.getItem('calories')) {
+if (localStorage.getItem("calories")) {
   renderUserDataRefresh();
   removeForm();
 }
@@ -143,8 +175,53 @@ function saveToLocal(userData) {
   var carbs = Math.round(userData.data.balanced.carbs);
   var calories = Math.round(userData.data.calorie);
 
-  localStorage.setItem('protein', protein);
-  localStorage.setItem('fat', fat);
-  localStorage.setItem('carbs', carbs);
-  localStorage.setItem('calories', calories);
+  localStorage.setItem("protein", protein);
+  localStorage.setItem("fat", fat);
+  localStorage.setItem("carbs", carbs);
+  localStorage.setItem("calories", calories);
 }
+
+// recipe Searcher Api
+
+// breakfast
+var breakfastSearchAPI =
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced";
+
+fetch(breakfastSearchAPI).then(function (res) {
+  return res.json().then(function (data) {
+    console.log(data);
+    // breakfast image
+    $("#breakfast-image").attr("src", data.hits[6].recipe.image);
+  });
+});
+
+
+// lunch
+var lunchSearchAPI =
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter";
+
+fetch(lunchSearchAPI).then(function (res) {
+  return res.json().then(function (data) {
+    console.log(data);
+    // lunch image
+    $("#lunch-image").attr("src", data.hits[2].recipe.image);
+  });
+});
+
+
+// dinner
+var dinnerSearchAPI =
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course";
+
+
+fetch(dinnerSearchAPI).then(function (res) {
+  return res.json().then(function (data) {
+    console.log(data.hits);
+    console.log(data.hits[0].recipe);
+
+    $("#dinner-image").attr("src", data.hits[2].recipe.image);
+    $("#dinner-recipe-name").text("I am trying to understand this");
+  });
+});
+
+// console.log($("#dinner-image"));
