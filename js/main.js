@@ -185,43 +185,46 @@ function saveToLocal(userData) {
 
 // breakfast
 var breakfastSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced";
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced&imageSize=LARGE";
 
 fetch(breakfastSearchAPI).then(function (res) {
   return res.json().then(function (data) {
     console.log(data);
-    // breakfast image
-    $("#breakfast-image").attr("src", data.hits[6].recipe.image);
+    // breakfast card
+    $("#breakfast-image").attr("src", data.hits[6].recipe.images.LARGE.url);
+    $("#breakfast-recipe-name").text(data.hits[2].recipe.label);
+    $("#breakfast-url").attr("href", data.hits[2].recipe.url);
   });
 });
 
-
 // lunch
 var lunchSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter";
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter&imageSize=LARGE";
 
 fetch(lunchSearchAPI).then(function (res) {
   return res.json().then(function (data) {
     console.log(data);
-    // lunch image
-    $("#lunch-image").attr("src", data.hits[2].recipe.image);
+    // lunch card
+    console.log(data.hits[2].recipe.images.LARGE.url);
+    console.log(data.hits[2].recipe.images.REGULAR.url);
+    $("#lunch-image").attr("src", data.hits[2].recipe.images.LARGE.url);
+    $("#lunch-recipe-name").text(data.hits[2].recipe.label);
+    $("#lunch-url").attr("href", data.hits[2].recipe.url);
   });
 });
 
-
 // dinner
 var dinnerSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course";
-
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course&imageSize=LARGE";
 
 fetch(dinnerSearchAPI).then(function (res) {
   return res.json().then(function (data) {
     console.log(data.hits);
     console.log(data.hits[0].recipe);
 
-    $("#dinner-image").attr("src", data.hits[2].recipe.image);
-    $("#dinner-recipe-name").text("I am trying to understand this");
+    // dinner card
+    $("#dinner-image").attr("src", data.hits[2].recipe.images.LARGE.url);
+    $("#dinner-recipe-name").text(data.hits[2].recipe.label);
+    $("#dinner-url").attr("href", data.hits[2].recipe.url);
   });
 });
-
-// console.log($("#dinner-image"));
