@@ -183,48 +183,77 @@ function saveToLocal(userData) {
 
 // recipe Searcher Api
 
-// breakfast
+var totalCalories = localStorage.getItem("calories");
+var breakfastCalories = Math.floor(totalCalories * 0.2);
+var breakfastCaloriesMin = breakfastCalories - 100;
+console.log(breakfastCalories);
+var lunchCalories = Math.floor(totalCalories * 0.3);
+var lunchCaloriesMin = lunchCalories - 100;
+var dinnerCalories = Math.floor(totalCalories * 0.5);
+var dinnerCaloriesMin = dinnerCalories - 100;
+//breakfast
 var breakfastSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced&imageSize=LARGE";
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced&imageSize=LARGE&calories=" +
+  breakfastCaloriesMin +
+  "-" +
+  breakfastCalories;
 
 fetch(breakfastSearchAPI).then(function (res) {
   return res.json().then(function (data) {
     console.log(data);
     // breakfast card
-    $("#breakfast-image").attr("src", data.hits[6].recipe.images.LARGE.url);
-    $("#breakfast-recipe-name").text(data.hits[2].recipe.label);
-    $("#breakfast-url").attr("href", data.hits[2].recipe.url);
+    var breakfastRandom = Math.floor(Math.random() * 19);
+
+    $("#breakfast-image").attr(
+      "src",
+      data.hits[breakfastRandom].recipe.images.LARGE.url
+    );
+    $("#breakfast-recipe-name").text(data.hits[breakfastRandom].recipe.label);
+    $("#breakfast-url").attr("href", data.hits[breakfastRandom].recipe.url);
   });
 });
 
 // lunch
 var lunchSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter&imageSize=LARGE";
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter&imageSize=LARGE&calories=" +
+  lunchCaloriesMin +
+  "-" +
+  lunchCalories;
 
 fetch(lunchSearchAPI).then(function (res) {
   return res.json().then(function (data) {
+    var lunchRandom = Math.floor(Math.random() * 19);
     console.log(data);
     // lunch card
-    console.log(data.hits[2].recipe.images.LARGE.url);
+    console.log(data.hits[lunchRandom].recipe.images.LARGE.url);
     console.log(data.hits[2].recipe.images.REGULAR.url);
-    $("#lunch-image").attr("src", data.hits[2].recipe.images.LARGE.url);
-    $("#lunch-recipe-name").text(data.hits[2].recipe.label);
-    $("#lunch-url").attr("href", data.hits[2].recipe.url);
+    $("#lunch-image").attr(
+      "src",
+      data.hits[lunchRandom].recipe.images.LARGE.url
+    );
+    $("#lunch-recipe-name").text(data.hits[lunchRandom].recipe.label);
+    $("#lunch-url").attr("href", data.hits[lunchRandom].recipe.url);
   });
 });
 
 // dinner
 var dinnerSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course&imageSize=LARGE";
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course&imageSize=LARGE&calories=" +
+  dinnerCaloriesMin +
+  "-" +
+  dinnerCalories;
 
 fetch(dinnerSearchAPI).then(function (res) {
   return res.json().then(function (data) {
     console.log(data.hits);
     console.log(data.hits[0].recipe);
-
+    var dinnerRandom = Math.floor(Math.random() * 19);
     // dinner card
-    $("#dinner-image").attr("src", data.hits[2].recipe.images.LARGE.url);
-    $("#dinner-recipe-name").text(data.hits[2].recipe.label);
-    $("#dinner-url").attr("href", data.hits[2].recipe.url);
+    $("#dinner-image").attr(
+      "src",
+      data.hits[dinnerRandom].recipe.images.LARGE.url
+    );
+    $("#dinner-recipe-name").text(data.hits[dinnerRandom].recipe.label);
+    $("#dinner-url").attr("href", data.hits[dinnerRandom].recipe.url);
   });
 });
