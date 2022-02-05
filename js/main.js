@@ -183,9 +183,20 @@ function saveToLocal(userData) {
 
 // recipe Searcher Api
 
-// breakfast
+var totalCalories = localStorage.getItem("calories");
+var breakfastCalories = Math.floor(totalCalories * 0.2);
+var breakfastCaloriesMin = breakfastCalories - 100;
+console.log(breakfastCalories);
+var lunchCalories = Math.floor(totalCalories * 0.3);
+var lunchCaloriesMin = lunchCalories - 100;
+var dinnerCalories = Math.floor(totalCalories * 0.5);
+var dinnerCaloriesMin = dinnerCalories - 100;
+//breakfast
 var breakfastSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced&imageSize=LARGE";
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced&imageSize=LARGE&calories=" +
+  breakfastCaloriesMin +
+  "-" +
+  breakfastCalories;
 
 fetch(breakfastSearchAPI).then(function (res) {
   return res.json().then(function (data) {
@@ -204,7 +215,10 @@ fetch(breakfastSearchAPI).then(function (res) {
 
 // lunch
 var lunchSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter&imageSize=LARGE";
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter&imageSize=LARGE&calories=" +
+  lunchCaloriesMin +
+  "-" +
+  lunchCalories;
 
 fetch(lunchSearchAPI).then(function (res) {
   return res.json().then(function (data) {
@@ -224,7 +238,10 @@ fetch(lunchSearchAPI).then(function (res) {
 
 // dinner
 var dinnerSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course&imageSize=LARGE";
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course&imageSize=LARGE&calories=" +
+  dinnerCaloriesMin +
+  "-" +
+  dinnerCalories;
 
 fetch(dinnerSearchAPI).then(function (res) {
   return res.json().then(function (data) {
