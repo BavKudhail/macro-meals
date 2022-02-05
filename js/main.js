@@ -9,17 +9,11 @@ function generateUserSummary(event) {
   // assigning user values
   var formContainer = $("#form-container");
   var age = $("#age").val();
-  console.log(age);
   var gender = $("#gender").val();
-  console.log(gender);
   var height = $("#height").val();
-  console.log(height);
   var weight = $("#weight").val();
-  console.log(weight);
   var userGoal = $("#goal").val();
-  console.log(userGoal);
   var activitylevel = $("#activity-level").val();
-  console.log(activitylevel);
 
   // fetching fitness API data
   fetch(
@@ -53,6 +47,10 @@ function generateUserSummary(event) {
       saveToLocal(data);
       renderUserDataRefresh();
       removeForm();
+      generateMeals();
+    })
+    .catch(function (error) {
+      console.log("error fetching fitness API data");
     });
 }
 
@@ -112,8 +110,6 @@ function removeForm() {
 //   );
 // }
 
-console.log(localStorage.getItem("calories"));
-
 function renderUserDataRefresh() {
   var userCard = $(`
     <div class="flex mx-10 my-5 justify-center inline-block px-3 py-3 bg-purple-custom text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg">
@@ -129,7 +125,6 @@ function renderUserDataRefresh() {
       `);
 
   $("#userCard").append(userCard);
-
   const dataDoughnut = {
     labels: [
       `Protein ${localStorage.getItem("protein")}g`,
@@ -160,7 +155,9 @@ function renderUserDataRefresh() {
     document.getElementById("chartDoughnut"),
     configDoughnut
   );
+  generateMeals();
 }
+
 if (localStorage.getItem("calories")) {
   renderUserDataRefresh();
   removeForm();
@@ -180,156 +177,167 @@ function saveToLocal(userData) {
 
 // recipe Searcher Api
 
-var totalCalories = localStorage.getItem("calories");
-var breakfastCalories = Math.floor(totalCalories * 0.2);
-var breakfastCaloriesMin = breakfastCalories - 100;
-console.log(breakfastCalories);
-var lunchCalories = Math.floor(totalCalories * 0.3);
-var lunchCaloriesMin = lunchCalories - 100;
-var dinnerCalories = Math.floor(totalCalories * 0.5);
-var dinnerCaloriesMin = dinnerCalories - 100;
-//breakfast
-var breakfastSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced&imageSize=LARGE&calories=" +
-  breakfastCaloriesMin +
-  "-" +
-  breakfastCalories;
+function generateBreakfast() {
+  var totalCalories = localStorage.getItem("calories");
+  var breakfastCalories = Math.floor(totalCalories * 0.2);
+  var breakfastCaloriesMin = breakfastCalories - 100;
+  //breakfast API
+  var breakfastSearchAPI =
+    "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced&imageSize=LARGE&calories=" +
+    breakfastCaloriesMin +
+    "-" +
+    breakfastCalories;
 
-// breakfast card
-fetch(breakfastSearchAPI).then(function (res) {
-  return res.json().then(function (data) {
-    console.log(data);
-    // breakfast card
-    var breakfastRandom = Math.floor(Math.random() * 19);
+  // fetching breakfast API data
+  fetch(breakfastSearchAPI).then(function (res) {
+    return res.json().then(function (data) {
+      console.log(data);
+      // breakfast card
+      var breakfastRandom = Math.floor(Math.random() * 19);
 
-    $("#breakfast-image").attr(
-      "src",
-      data.hits[breakfastRandom].recipe.images.LARGE.url
-    );
-    $("#breakfast-protein").text(
-      Math.floor(
-        data.hits[breakfastRandom].recipe.totalNutrients.PROCNT.quantity /
-          data.hits[breakfastRandom].recipe.yield
-      ) + "g"
-    );
-    $("#breakfast-fats").text(
-      Math.floor(
-        data.hits[breakfastRandom].recipe.totalNutrients.FAT.quantity /
-          data.hits[breakfastRandom].recipe.yield
-      ) + "g"
-    );
-    $("#breakfast-carbs").text(
-      Math.floor(
-        data.hits[breakfastRandom].recipe.totalNutrients.CHOCDF.quantity /
-          data.hits[breakfastRandom].recipe.yield
-      ) + "g"
-    );
-    $("#breakfast-recipe-name").text(data.hits[breakfastRandom].recipe.label);
-    $("#breakfast-url").attr("href", data.hits[breakfastRandom].recipe.url);
-    console.log(data.hits[breakfastRandom].recipe);
-    console.log(data.hits[breakfastRandom].recipe.yield);
-    $("#break-fast-calories").text(
-      Math.floor(
-        data.hits[breakfastRandom].recipe.calories /
-          data.hits[breakfastRandom].recipe.yield
-      )
-    );
+      $("#breakfast-image").attr(
+        "src",
+        data.hits[breakfastRandom].recipe.images.LARGE.url
+      );
+      $("#breakfast-protein").text(
+        Math.floor(
+          data.hits[breakfastRandom].recipe.totalNutrients.PROCNT.quantity /
+            data.hits[breakfastRandom].recipe.yield
+        ) + "g"
+      );
+      $("#breakfast-fats").text(
+        Math.floor(
+          data.hits[breakfastRandom].recipe.totalNutrients.FAT.quantity /
+            data.hits[breakfastRandom].recipe.yield
+        ) + "g"
+      );
+      $("#breakfast-carbs").text(
+        Math.floor(
+          data.hits[breakfastRandom].recipe.totalNutrients.CHOCDF.quantity /
+            data.hits[breakfastRandom].recipe.yield
+        ) + "g"
+      );
+      $("#breakfast-recipe-name").text(data.hits[breakfastRandom].recipe.label);
+      $("#breakfast-url").attr("href", data.hits[breakfastRandom].recipe.url);
+      console.log(data.hits[breakfastRandom].recipe);
+      console.log(data.hits[breakfastRandom].recipe.yield);
+      $("#break-fast-calories").text(
+        Math.floor(
+          data.hits[breakfastRandom].recipe.calories /
+            data.hits[breakfastRandom].recipe.yield
+        )
+      );
+    });
   });
-});
+}
 
-// lunch
-var lunchSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter&imageSize=LARGE&calories=" +
-  lunchCaloriesMin +
-  "-" +
-  lunchCalories;
+function generateLunch() {
+  var totalCalories = localStorage.getItem("calories");
+  var lunchCalories = Math.floor(totalCalories * 0.3);
+  var lunchCaloriesMin = lunchCalories - 100;
+  // lunch
+  var lunchSearchAPI =
+    "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter&imageSize=LARGE&calories=" +
+    lunchCaloriesMin +
+    "-" +
+    lunchCalories;
 
-fetch(lunchSearchAPI).then(function (res) {
-  return res.json().then(function (data) {
-    var lunchRandom = Math.floor(Math.random() * 19);
-    console.log(data);
-    // lunch card
-    console.log(data.hits[lunchRandom].recipe.images.LARGE.url);
-    console.log(data.hits[2].recipe.images.REGULAR.url);
-    $("#lunch-image").attr(
-      "src",
-      data.hits[lunchRandom].recipe.images.LARGE.url
-    );
-    $("#lunch-recipe-name").text(data.hits[lunchRandom].recipe.label);
-    $("#lunch-url").attr("href", data.hits[lunchRandom].recipe.url);
+  fetch(lunchSearchAPI).then(function (res) {
+    return res.json().then(function (data) {
+      var lunchRandom = Math.floor(Math.random() * 19);
+      console.log(data);
+      // lunch card
+      $("#lunch-image").attr(
+        "src",
+        data.hits[lunchRandom].recipe.images.LARGE.url
+      );
+      $("#lunch-recipe-name").text(data.hits[lunchRandom].recipe.label);
+      $("#lunch-url").attr("href", data.hits[lunchRandom].recipe.url);
 
-    // lunch nutrition values
-    $("#lunch-calories").text(
-      Math.floor(
-        data.hits[lunchRandom].recipe.calories /
-          data.hits[lunchRandom].recipe.yield
-      )
-    );
-    $("#lunch-protein").text(
-      Math.floor(
-        data.hits[lunchRandom].recipe.totalNutrients.PROCNT.quantity /
-          data.hits[lunchRandom].recipe.yield
-      ) + "g"
-    );
-    $("#lunch-fats").text(
-      Math.floor(
-        data.hits[lunchRandom].recipe.totalNutrients.FAT.quantity /
-          data.hits[lunchRandom].recipe.yield
-      ) + "g"
-    );
-    $("#lunch-carbs").text(
-      Math.floor(
-        data.hits[lunchRandom].recipe.totalNutrients.CHOCDF.quantity /
-          data.hits[lunchRandom].recipe.yield
-      ) + "g"
-    );
+      // lunch nutrition values
+      $("#lunch-calories").text(
+        Math.floor(
+          data.hits[lunchRandom].recipe.calories /
+            data.hits[lunchRandom].recipe.yield
+        )
+      );
+      $("#lunch-protein").text(
+        Math.floor(
+          data.hits[lunchRandom].recipe.totalNutrients.PROCNT.quantity /
+            data.hits[lunchRandom].recipe.yield
+        ) + "g"
+      );
+      $("#lunch-fats").text(
+        Math.floor(
+          data.hits[lunchRandom].recipe.totalNutrients.FAT.quantity /
+            data.hits[lunchRandom].recipe.yield
+        ) + "g"
+      );
+      $("#lunch-carbs").text(
+        Math.floor(
+          data.hits[lunchRandom].recipe.totalNutrients.CHOCDF.quantity /
+            data.hits[lunchRandom].recipe.yield
+        ) + "g"
+      );
+    });
   });
-});
+}
 
-// dinner
-var dinnerSearchAPI =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course&imageSize=LARGE&calories=" +
-  dinnerCaloriesMin +
-  "-" +
-  dinnerCalories;
+function generateDinner() {
+  var totalCalories = localStorage.getItem("calories");
+  var dinnerCalories = Math.floor(totalCalories * 0.5);
+  var dinnerCaloriesMin = dinnerCalories - 100;
+  // dinner
+  var dinnerSearchAPI =
+    "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course&imageSize=LARGE&calories=" +
+    dinnerCaloriesMin +
+    "-" +
+    dinnerCalories;
+  var dinnerRandom = Math.floor(Math.random() * 19);
 
-fetch(dinnerSearchAPI).then(function (res) {
-  return res.json().then(function (data) {
-    console.log(data.hits);
-    console.log(data.hits[0].recipe);
-    var dinnerRandom = Math.floor(Math.random() * 19);
-    // dinner card
-    $("#dinner-image").attr(
-      "src",
-      data.hits[dinnerRandom].recipe.images.LARGE.url
-    );
-    $("#dinner-recipe-name").text(data.hits[dinnerRandom].recipe.label);
-    $("#dinner-url").attr("href", data.hits[dinnerRandom].recipe.url);
-    // nutrition
-    // lunch nutrition values
-    $("#dinner-calories").text(
-      Math.floor(
-        data.hits[dinnerRandom].recipe.calories /
-          data.hits[dinnerRandom].recipe.yield
-      )
-    );
-    $("#dinner-protein").text(
-      Math.floor(
-        data.hits[dinnerRandom].recipe.totalNutrients.PROCNT.quantity /
-          data.hits[dinnerRandom].recipe.yield
-      ) + "g"
-    );
-    $("#dinner-fats").text(
-      Math.floor(
-        data.hits[dinnerRandom].recipe.totalNutrients.FAT.quantity /
-          data.hits[dinnerRandom].recipe.yield
-      ) + "g"
-    );
-    $("#dinner-carbs").text(
-      Math.floor(
-        data.hits[dinnerRandom].recipe.totalNutrients.CHOCDF.quantity /
-          data.hits[dinnerRandom].recipe.yield
-      ) + "g"
-    );
+  fetch(dinnerSearchAPI).then(function (res) {
+    return res.json().then(function (data) {
+      console.log(data);
+      // dinner card
+      $("#dinner-image").attr(
+        "src",
+        data.hits[dinnerRandom].recipe.images.LARGE.url
+      );
+      $("#dinner-recipe-name").text(data.hits[dinnerRandom].recipe.label);
+      $("#dinner-url").attr("href", data.hits[dinnerRandom].recipe.url);
+      // nutrition
+      // lunch nutrition values
+      console.log(dinnerRandom);
+      $("#dinner-calories").text(
+        Math.floor(
+          data.hits[dinnerRandom].recipe.calories /
+            data.hits[dinnerRandom].recipe.yield
+        )
+      );
+      $("#dinner-protein").text(
+        Math.floor(
+          data.hits[dinnerRandom].recipe.totalNutrients.PROCNT.quantity /
+            data.hits[dinnerRandom].recipe.yield
+        ) + "g"
+      );
+      $("#dinner-fats").text(
+        Math.floor(
+          data.hits[dinnerRandom].recipe.totalNutrients.FAT.quantity /
+            data.hits[dinnerRandom].recipe.yield
+        ) + "g"
+      );
+      $("#dinner-carbs").text(
+        Math.floor(
+          data.hits[dinnerRandom].recipe.totalNutrients.CHOCDF.quantity /
+            data.hits[dinnerRandom].recipe.yield
+        ) + "g"
+      );
+    });
   });
-});
+}
+
+function generateMeals() {
+  generateBreakfast();
+  generateLunch();
+  generateDinner();
+}
