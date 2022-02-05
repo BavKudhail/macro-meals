@@ -49,8 +49,9 @@ function generateUserSummary(event) {
     .then(function (data) {
       console.log(data);
       // function that makes the users summary visible in a chart
-      renderUserData(data);
+      //   renderUserData(data);
       saveToLocal(data);
+      renderUserDataRefresh();
       removeForm();
     });
 }
@@ -59,57 +60,57 @@ function removeForm() {
   $("#form-container").addClass("form-none");
 }
 
-function renderUserData(userData) {
-  console.log(userData.data);
+// function renderUserData(userData) {
+//   console.log(userData.data);
 
-  // Declaring variables for recommended macros
-  var protein = Math.round(userData.data.balanced.protein);
-  var fat = Math.round(userData.data.balanced.fat);
-  var carbs = Math.round(userData.data.balanced.carbs);
-  var calories = Math.round(userData.data.calorie);
+//   // Declaring variables for recommended macros
+//   var protein = Math.round(userData.data.balanced.protein);
+//   var fat = Math.round(userData.data.balanced.fat);
+//   var carbs = Math.round(userData.data.balanced.carbs);
+//   var calories = Math.round(userData.data.calorie);
 
-  var userCard = $(`
-  <div class="flex justify-center">
-  <h1 class="font-semibold"> Target Calories: </h1>
-  <p>${calories}</p>
-  </div>
-  <div class="flex justify-center">
-  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Balanced Diet</h5>
-      <canvas class="p-10" id="chartDoughnut"></canvas>
-  </div>     
-  </div>
-   `);
+//   var userCard = $(`
+//   <div class="flex justify-center">
+//   <h1 class="font-semibold"> Target Calories: </h1>
+//   <p>${calories}</p>
+//   </div>
+//   <div class="flex justify-center">
+//   <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+//     <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Balanced Diet</h5>
+//       <canvas class="p-10" id="chartDoughnut"></canvas>
+//   </div>
+//   </div>
+//    `);
 
-  $("#userCard").append(userCard);
+//   $("#userCard").append(userCard);
 
-  const dataDoughnut = {
-    labels: [`Protein ${protein}g`, `Fat ${fat}g`, `Carbs ${carbs}g`],
-    datasets: [
-      {
-        label: "Nutrition",
-        data: [protein, fat, carbs],
-        backgroundColor: [
-          "rgb(133, 105, 241)",
-          "rgb(164, 101, 241)",
-          "rgb(101, 143, 241)",
-        ],
-        hoverOffset: 4,
-      },
-    ],
-  };
+//   const dataDoughnut = {
+//     labels: [`Protein ${protein}g`, `Fat ${fat}g`, `Carbs ${carbs}g`],
+//     datasets: [
+//       {
+//         label: "Nutrition",
+//         data: [protein, fat, carbs],
+//         backgroundColor: [
+//           "rgb(133, 105, 241)",
+//           "rgb(164, 101, 241)",
+//           "rgb(101, 143, 241)",
+//         ],
+//         hoverOffset: 4,
+//       },
+//     ],
+//   };
 
-  const configDoughnut = {
-    type: "doughnut",
-    data: dataDoughnut,
-    options: {},
-  };
+//   const configDoughnut = {
+//     type: "doughnut",
+//     data: dataDoughnut,
+//     options: {},
+//   };
 
-  var chartBar = new Chart(
-    document.getElementById("chartDoughnut"),
-    configDoughnut
-  );
-}
+//   var chartBar = new Chart(
+//     document.getElementById("chartDoughnut"),
+//     configDoughnut
+//   );
+// }
 
 console.log(localStorage.getItem("calories"));
 
