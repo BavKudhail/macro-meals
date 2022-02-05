@@ -115,14 +115,14 @@ console.log(localStorage.getItem("calories"));
 
 function renderUserDataRefresh() {
   var userCard = $(`
-    <div class="flex justify-center">
+    <div class="flex mx-10 my-5 justify-center inline-block px-3 py-3 bg-purple-custom text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg">
     <h1 class="font-semibold"> Target Calories: </h1>
     <p>${localStorage.getItem("calories")}</p>
     </div>
     <div class="flex justify-center">
-    <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-      <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Balanced Diet</h5>
-        <canvas class="p-10" id="chartDoughnut"></canvas>
+    <div class="block p-6 rounded-lg shadow-lg bg-pink-custom  max-w-sm ">
+      <h5 class="text-gray-600 text-8-xl leading-tight font-medium mb-2">Balanced Diet</h5>
+        <canvas class="p-3 " id="chartDoughnut"></canvas>
     </div>
     </div>
       `);
@@ -143,11 +143,7 @@ function renderUserDataRefresh() {
           localStorage.getItem("fat"),
           localStorage.getItem("carbs"),
         ],
-        backgroundColor: [
-          "rgb(133, 105, 241)",
-          "rgb(164, 101, 241)",
-          "rgb(101, 143, 241)",
-        ],
+        backgroundColor: ["#F5458A", "#70F2AC", "#50BDFA"],
         hoverOffset: 4,
       },
     ],
@@ -198,6 +194,7 @@ var breakfastSearchAPI =
   "-" +
   breakfastCalories;
 
+// breakfast card
 fetch(breakfastSearchAPI).then(function (res) {
   return res.json().then(function (data) {
     console.log(data);
@@ -208,8 +205,34 @@ fetch(breakfastSearchAPI).then(function (res) {
       "src",
       data.hits[breakfastRandom].recipe.images.LARGE.url
     );
+    $("#breakfast-protein").text(
+      Math.floor(
+        data.hits[breakfastRandom].recipe.totalNutrients.PROCNT.quantity /
+          data.hits[breakfastRandom].recipe.yield
+      ) + "g"
+    );
+    $("#breakfast-fats").text(
+      Math.floor(
+        data.hits[breakfastRandom].recipe.totalNutrients.FAT.quantity /
+          data.hits[breakfastRandom].recipe.yield
+      ) + "g"
+    );
+    $("#breakfast-carbs").text(
+      Math.floor(
+        data.hits[breakfastRandom].recipe.totalNutrients.CHOCDF.quantity /
+          data.hits[breakfastRandom].recipe.yield
+      ) + "g"
+    );
     $("#breakfast-recipe-name").text(data.hits[breakfastRandom].recipe.label);
     $("#breakfast-url").attr("href", data.hits[breakfastRandom].recipe.url);
+    console.log(data.hits[breakfastRandom].recipe);
+    console.log(data.hits[breakfastRandom].recipe.yield);
+    $("#break-fast-calories").text(
+      Math.floor(
+        data.hits[breakfastRandom].recipe.calories /
+          data.hits[breakfastRandom].recipe.yield
+      )
+    );
   });
 });
 
@@ -233,6 +256,32 @@ fetch(lunchSearchAPI).then(function (res) {
     );
     $("#lunch-recipe-name").text(data.hits[lunchRandom].recipe.label);
     $("#lunch-url").attr("href", data.hits[lunchRandom].recipe.url);
+
+    // lunch nutrition values
+    $("#lunch-calories").text(
+      Math.floor(
+        data.hits[lunchRandom].recipe.calories /
+          data.hits[lunchRandom].recipe.yield
+      )
+    );
+    $("#lunch-protein").text(
+      Math.floor(
+        data.hits[lunchRandom].recipe.totalNutrients.PROCNT.quantity /
+          data.hits[lunchRandom].recipe.yield
+      ) + "g"
+    );
+    $("#lunch-fats").text(
+      Math.floor(
+        data.hits[lunchRandom].recipe.totalNutrients.FAT.quantity /
+          data.hits[lunchRandom].recipe.yield
+      ) + "g"
+    );
+    $("#lunch-carbs").text(
+      Math.floor(
+        data.hits[lunchRandom].recipe.totalNutrients.CHOCDF.quantity /
+          data.hits[lunchRandom].recipe.yield
+      ) + "g"
+    );
   });
 });
 
@@ -255,5 +304,31 @@ fetch(dinnerSearchAPI).then(function (res) {
     );
     $("#dinner-recipe-name").text(data.hits[dinnerRandom].recipe.label);
     $("#dinner-url").attr("href", data.hits[dinnerRandom].recipe.url);
+    // nutrition
+    // lunch nutrition values
+    $("#dinner-calories").text(
+      Math.floor(
+        data.hits[dinnerRandom].recipe.calories /
+          data.hits[dinnerRandom].recipe.yield
+      )
+    );
+    $("#dinner-protein").text(
+      Math.floor(
+        data.hits[dinnerRandom].recipe.totalNutrients.PROCNT.quantity /
+          data.hits[dinnerRandom].recipe.yield
+      ) + "g"
+    );
+    $("#dinner-fats").text(
+      Math.floor(
+        data.hits[dinnerRandom].recipe.totalNutrients.FAT.quantity /
+          data.hits[dinnerRandom].recipe.yield
+      ) + "g"
+    );
+    $("#dinner-carbs").text(
+      Math.floor(
+        data.hits[dinnerRandom].recipe.totalNutrients.CHOCDF.quantity /
+          data.hits[dinnerRandom].recipe.yield
+      ) + "g"
+    );
   });
 });
