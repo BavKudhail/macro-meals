@@ -4,26 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- tailwild css exp -->
+    <!-- fontawesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- google fonts link -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <!-- css stylesheet -->
     <link rel="stylesheet" href="css/style.css">
     <!-- tailwind css link -->
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Meal-Planner</title>
   </head>
   <body>
+
+    <!-- navbar -->
+  <nav class="border-b">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-16">
+          <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+          <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
+    </div>
+  </div>
+</nav>
+      
       <div  id="form-container">
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-md w-full space-y-8 bg-purple-200 px-5 py-5 rounded-lg">
+      <div class="max-w-xl w-full space-y-8 bg-purple-custom px-12 py-5 rounded-lg">
         <!-- logo  -->
         <div>
           <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
-          <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Welcome to *LOGO*</h2>
+          <h2 class="mt-6 text-center text-4xl font-semibold text-white">WELCOME TO *LOGO*</h2>
         </div>
 
-        <p class="mt-2 text-center text-sm text-gray-600">Insert your details for a custom meal plan.</p>
+        <p class="mt-2 text-center text-lg text-white">Insert your details for a custom meal plan.</p>
 
         <!-- user form -->
         <form class="mt-8 space-y-6" id="user-form" action="#" method="POST">
@@ -37,27 +50,16 @@
                 name="age"
                 type="text"
                 required
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                class="appearance-none rounded-full mb-3 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Age"
               />
             </div>
             <!-- gender -->
-            <!-- <div>
-              <label for="gender" class="sr-only">Gender</label>
-              <input
-                id="gender"
-                name="gender"
-                type="gender"
-                required
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Gender"
-              />
-            </div> -->
             <div class="flex justify-center">
                 <div class=" w-full">
                   <select
                     id="gender"
-                    class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none rounded-full mb-3"
                     aria-label="Default select example"
                     
                   >
@@ -78,7 +80,7 @@
                 name="height"
                 type="height"
                 required
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                class="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-3"
                 placeholder="Height"
               />
             </div>
@@ -90,7 +92,7 @@
                 name="weight"
                 type="weight"
                 required
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm rounded-full mb-3"
                 placeholder="Weight"
               />
             </div>
@@ -99,7 +101,7 @@
               <div class="mb-3 w-full">
                 <select
                   id="goal"
-                  class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-b-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none rounded-full mb-3"
                   aria-label="Default select example"
                 >
                   <div>
@@ -129,7 +131,7 @@
             <div>
               <button
                 type="submit"
-                class="inline-block px-6 py-2.5 bg-rose-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                class="inline-block px-10 py-3 bg-rose-500 text-white font-medium text-s leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-ou"
               >
                 Generate
               </button>
@@ -139,21 +141,64 @@
       </div>
     </div>
     </div>
+
+    
     <div id="userCard"></div>
 
 
-<div class="flex justify-center">
-  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Balanced Diet</h5>
-      <canvas class="p-10" id="chartDoughnut"></canvas>
-  </div>     
+
+
+
+
+<div class="flex justify-around m-20">
+  <!-- Breakfast card -->
+<div class="flex justify-center m-5 ">
+  <div class="rounded-lg shadow-lg bg-white max-w-sm recipe-card-border">
+    <a href="#!">
+      <img id="breakfast-image" class="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt=""/>
+    </a>
+    <div class="p-6">
+      
+      <h2 class="text-gray-900 text-l font-medium mb-2">Breakfast</h2>
+      <h5 id="breakfast-recipe-name" class="text-gray-900 text-xl font-medium mb-2">Recipe Name</h5>
+      <a target="blank" class=" flex justify-center inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" id="breakfast-url" href="">GET RECIPE</a>
+    </div>
+  </div>
+</div>
+
+<!-- Lunch card -->
+<div class="flex justify-center m-5">
+  <div class="rounded-lg shadow-lg bg-white max-w-sm recipe-card-border">
+    <a href="#!">
+      <img id="lunch-image" class="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt=""/>
+    </a>
+    <div class="p-6">
+      
+      <h2 class="text-gray-900 text-l font-medium mb-2">Lunch</h2>
+      <h5 id="lunch-recipe-name" class="text-gray-900 text-xl font-medium mb-2">Recipe Name</h5>
+      <a target="blank" class=" flex justify-center inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" id="lunch-url" href="">GET RECIPE</a>
+    </div>
+  </div>
+</div>
+<!-- Dinner card -->
+<div class="flex justify-center m-5 ">
+  <div class="rounded-lg shadow-lg bg-white max-w-sm recipe-card-border">
+    <a href="#!">
+      <img id="dinner-image" class="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt=""/>
+    </a>
+    <div class="p-6">
+      
+      <h2 class="text-gray-900 text-l font-medium mb-2">Dinner</h2>
+      <h5 class="text-gray-900 text-xl font-medium mb-2"><span id="dinner-recipe-name"></span></h5>
+      <a target="blank" class=" flex justify-center inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" id="dinner-url" href="">GET RECIPE</a>
+    </div>
+  </div>
+</div>
 </div>
     
 
     <!-- Required chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    
     </script>
     <!-- tailwind js -->
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>

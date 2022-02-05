@@ -23,7 +23,6 @@ function generateUserSummary(event) {
 
   // fetching fitness API data
   fetch(
-    // "https://fitness-calculator.p.rapidapi.com/macrocalculator?age=26&gender=male&height=180&weight=70&activitylevel=4&goal=maintain",
     "https://fitness-calculator.p.rapidapi.com/macrocalculator?age=" +
       age +
       "&gender=" +
@@ -71,10 +70,16 @@ function renderUserData(userData) {
 
   var userCard = $(`
   <div class="flex justify-center">
-  <h1 class="font-extrabold"> Target Calories: </h1>
+  <h1 class="font-semibold"> Target Calories: </h1>
   <p>${calories}</p>
   </div>
-    `);
+  <div class="flex justify-center">
+  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Balanced Diet</h5>
+      <canvas class="p-10" id="chartDoughnut"></canvas>
+  </div>     
+  </div>
+   `);
 
   $("#userCard").append(userCard);
 
@@ -109,13 +114,18 @@ function renderUserData(userData) {
 console.log(localStorage.getItem("calories"));
 
 function renderUserDataRefresh() {
-  //   if (localStorage.getItem("calories")) {
   var userCard = $(`
-  <div class="flex justify-center">
-  <h1 class="font-extrabold"> Target Calories: </h1>
-  <p>${localStorage.getItem("calories")}</p>
-  </div>
-    `);
+    <div class="flex justify-center">
+    <h1 class="font-semibold"> Target Calories: </h1>
+    <p>${localStorage.getItem("calories")}</p>
+    </div>
+    <div class="flex justify-center">
+    <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+      <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Balanced Diet</h5>
+        <canvas class="p-10" id="chartDoughnut"></canvas>
+    </div>
+    </div>
+      `);
 
   $("#userCard").append(userCard);
 
@@ -170,3 +180,51 @@ function saveToLocal(userData) {
   localStorage.setItem("carbs", carbs);
   localStorage.setItem("calories", calories);
 }
+
+// recipe Searcher Api
+
+// breakfast
+var breakfastSearchAPI =
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=breakfast&diet=balanced&imageSize=LARGE";
+
+fetch(breakfastSearchAPI).then(function (res) {
+  return res.json().then(function (data) {
+    console.log(data);
+    // breakfast card
+    $("#breakfast-image").attr("src", data.hits[6].recipe.images.LARGE.url);
+    $("#breakfast-recipe-name").text(data.hits[2].recipe.label);
+    $("#breakfast-url").attr("href", data.hits[2].recipe.url);
+  });
+});
+
+// lunch
+var lunchSearchAPI =
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=lunch&diet=balanced&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Starter&imageSize=LARGE";
+
+fetch(lunchSearchAPI).then(function (res) {
+  return res.json().then(function (data) {
+    console.log(data);
+    // lunch card
+    console.log(data.hits[2].recipe.images.LARGE.url);
+    console.log(data.hits[2].recipe.images.REGULAR.url);
+    $("#lunch-image").attr("src", data.hits[2].recipe.images.LARGE.url);
+    $("#lunch-recipe-name").text(data.hits[2].recipe.label);
+    $("#lunch-url").attr("href", data.hits[2].recipe.url);
+  });
+});
+
+// dinner
+var dinnerSearchAPI =
+  "https://api.edamam.com/api/recipes/v2?type=public&app_id=bc5cbaa0&app_key=381962b6de0bc353997fbbf9824d4794&q=%20&mealType=dinner&diet=balanced&dishType=main%20course&imageSize=LARGE";
+
+fetch(dinnerSearchAPI).then(function (res) {
+  return res.json().then(function (data) {
+    console.log(data.hits);
+    console.log(data.hits[0].recipe);
+
+    // dinner card
+    $("#dinner-image").attr("src", data.hits[2].recipe.images.LARGE.url);
+    $("#dinner-recipe-name").text(data.hits[2].recipe.label);
+    $("#dinner-url").attr("href", data.hits[2].recipe.url);
+  });
+});
