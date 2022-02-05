@@ -191,9 +191,14 @@ fetch(breakfastSearchAPI).then(function (res) {
   return res.json().then(function (data) {
     console.log(data);
     // breakfast card
-    $("#breakfast-image").attr("src", data.hits[6].recipe.images.LARGE.url);
-    $("#breakfast-recipe-name").text(data.hits[2].recipe.label);
-    $("#breakfast-url").attr("href", data.hits[2].recipe.url);
+    var breakfastRandom = Math.floor(Math.random() * 19);
+
+    $("#breakfast-image").attr(
+      "src",
+      data.hits[breakfastRandom].recipe.images.LARGE.url
+    );
+    $("#breakfast-recipe-name").text(data.hits[breakfastRandom].recipe.label);
+    $("#breakfast-url").attr("href", data.hits[breakfastRandom].recipe.url);
   });
 });
 
@@ -203,13 +208,17 @@ var lunchSearchAPI =
 
 fetch(lunchSearchAPI).then(function (res) {
   return res.json().then(function (data) {
+    var lunchRandom = Math.floor(Math.random() * 19);
     console.log(data);
     // lunch card
-    console.log(data.hits[2].recipe.images.LARGE.url);
+    console.log(data.hits[lunchRandom].recipe.images.LARGE.url);
     console.log(data.hits[2].recipe.images.REGULAR.url);
-    $("#lunch-image").attr("src", data.hits[2].recipe.images.LARGE.url);
-    $("#lunch-recipe-name").text(data.hits[2].recipe.label);
-    $("#lunch-url").attr("href", data.hits[2].recipe.url);
+    $("#lunch-image").attr(
+      "src",
+      data.hits[lunchRandom].recipe.images.LARGE.url
+    );
+    $("#lunch-recipe-name").text(data.hits[lunchRandom].recipe.label);
+    $("#lunch-url").attr("href", data.hits[lunchRandom].recipe.url);
   });
 });
 
@@ -221,10 +230,13 @@ fetch(dinnerSearchAPI).then(function (res) {
   return res.json().then(function (data) {
     console.log(data.hits);
     console.log(data.hits[0].recipe);
-
+    var dinnerRandom = Math.floor(Math.random() * 19);
     // dinner card
-    $("#dinner-image").attr("src", data.hits[2].recipe.images.LARGE.url);
-    $("#dinner-recipe-name").text(data.hits[2].recipe.label);
-    $("#dinner-url").attr("href", data.hits[2].recipe.url);
+    $("#dinner-image").attr(
+      "src",
+      data.hits[dinnerRandom].recipe.images.LARGE.url
+    );
+    $("#dinner-recipe-name").text(data.hits[dinnerRandom].recipe.label);
+    $("#dinner-url").attr("href", data.hits[dinnerRandom].recipe.url);
   });
 });
