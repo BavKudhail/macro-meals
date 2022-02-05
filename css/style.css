@@ -9,6 +9,9 @@
 .bg-pink-custom {
   background-image: linear-gradient(19deg, #f9a8fa 0%, #fce6e6 100%);
 }
+.bg-orange-custom {
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+}
 
 .recipe-card-border {
   border: 1px solid #7f23f5;
