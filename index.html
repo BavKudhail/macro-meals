@@ -31,8 +31,8 @@
       <div class="max-w-xl w-full space-y-8 bg-purple-custom px-12 py-5 rounded-lg">
         <!-- logo  -->
         <div>
-          <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
-          <h2 class="mt-6 text-center text-4xl font-semibold text-white">WELCOME TO </h2>
+          <img class="mx-auto h-12 w-auto" src="./images/Group 6.png" alt="Workflow" />
+          <h2 class="mt-6 text-center text-4xl font-bold text-white">MACROMEALS</h2>
         </div>
 
         <p class="mt-2 text-center text-lg text-white">Insert your details for a custom meal plan.</p>
@@ -140,13 +140,16 @@
       </div>
     </div>
     </div>
-
     
-    <div id="userCard"></div>
 
+    <div class="flex justify-end px-10">
+    <button type="button" id="backBtn" class="form-none px-6 mt-3 p-1 border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded hover:bg-red-600 hover:text-white">Back <i class="fas fa-backspace"></i></button>
+    </div>
+    <div id="userCard">
+    </div>
 
-
-<!-- day container -->
+<!-- Monday -->
+<!-- Day container -->
 <div class="flex justify-around m-20">
   <!-- Breakfast card -->
 <div class="flex justify-center m-5 ">
@@ -173,7 +176,7 @@
       </div>
 
       <a target="blank" class=" flex justify-center inline-block px-6 py-2.5  
-      border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:text-white hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" id="breakfast-url" href="">GET RECIPE</a>
+      border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:text-white hover:shadow-lg" id="breakfast-url" href="">GET RECIPE</a>
     </div>
   </div>
 </div>
@@ -201,7 +204,7 @@
         <div class="inline-block px-6 py-2.5 carbs text-white font-medium text-xs leading-tight rounded-full shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-2"><span id="lunch-carbs"></span></div>
       </div>
       <a target="blank" class=" flex justify-center inline-block px-6 py-2.5  
-      border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:text-white hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" id="lunch-url" href="">GET RECIPE</a>
+      border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:text-white hover:shadow-lg" id="lunch-url" href="">GET RECIPE</a>
     </div>
   </div>
 </div>
@@ -228,11 +231,12 @@
         <div class="inline-block px-6 py-2.5 carbs text-white font-medium text-xs leading-tight rounded-full shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-2"><span id="dinner-carbs"></span></div>
       </div>
       <a target="blank" class=" flex justify-center inline-block px-6 py-2.5  
-      border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:text-white hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" id="lunch-url" href="">GET RECIPE</a>
+      border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:text-white hover:shadow-lg" id="lunch-url" href="">GET RECIPE</a>
     </div>
     </div>
   </div>
 </div>
+
     
 
     <!-- Required chart.js -->
@@ -242,6 +246,6 @@
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <!-- jquery cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./js/main.js"></script>
+    <script defer src="./js/main.js"></script>
   </body>
 </html>

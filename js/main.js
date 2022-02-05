@@ -111,8 +111,10 @@ function removeForm() {
 // }
 
 function renderUserDataRefresh() {
+  $("#backBtn").addClass("flex");
+
   var userCard = $(`
-    <div class="flex mx-10 my-5 justify-center inline-block px-3 py-3 bg-purple-custom text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg">
+    <div class="flex mx-10 mt-1 mb-5 justify-center inline-block px-3 py-3 bg-purple-custom text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg">
     <h1 class="font-semibold"> Target Calories: </h1>
     <p>${localStorage.getItem("calories")}</p>
     </div>
@@ -341,3 +343,10 @@ function generateMeals() {
   generateLunch();
   generateDinner();
 }
+
+$("#backBtn").on("click", function () {
+  localStorage.clear();
+  location.reload();
+  $("#backBtn").removeClass("flex");
+});
+
