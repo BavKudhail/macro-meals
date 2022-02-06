@@ -48,10 +48,17 @@ function generateUserSummary(event) {
       renderUserDataRefresh();
       removeForm();
       generateMeals();
+      if (localStorage.getItem("calories")) {
+        $(".meal-section").removeClass("meal-section");
+      }
     })
     .catch(function (error) {
       console.log("error fetching fitness API data");
     });
+}
+
+if (localStorage.getItem("calories")) {
+  $(".meal-section").removeClass("meal-section");
 }
 
 function removeForm() {
@@ -349,4 +356,3 @@ $("#backBtn").on("click", function () {
   location.reload();
   $("#backBtn").removeClass("flex");
 });
-
