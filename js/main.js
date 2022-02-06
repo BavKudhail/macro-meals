@@ -236,6 +236,10 @@ function generateBreakfast() {
             data.hits[breakfastRandom].recipe.yield
         )
       );
+      $("#saveBreakfast").on("click", function (e) {
+        e.preventDefault();
+        saveRecipe("Breakfast", data, breakfastRandom);
+      });
     });
   });
 }
@@ -288,6 +292,10 @@ function generateLunch() {
             data.hits[lunchRandom].recipe.yield
         ) + "g"
       );
+      $("#saveLunch").on("click", function (e) {
+        e.preventDefault();
+        saveRecipe("Lunch", data, lunchRandom);
+      });
     });
   });
 }
@@ -341,6 +349,10 @@ function generateDinner() {
             data.hits[dinnerRandom].recipe.yield
         ) + "g"
       );
+      $("#saveDinner").on("click", function (e) {
+        e.preventDefault();
+        saveRecipe("Dinner", data, dinnerRandom);
+      });
     });
   });
 }
@@ -356,3 +368,20 @@ $("#backBtn").on("click", function () {
   location.reload();
   $("#backBtn").removeClass("flex");
 });
+
+function saveRecipe(mealtime, data, index) {
+  savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+  console.log(savedRecipes);
+  if (savedRecipes == null) {
+    savedRecipes = [];
+  }
+  var mealObj = {
+    meal: mealtime,
+    title: data.hits[index].recipe.label,
+    image: data.hits[index].recipe.images.LARGE.url,
+    url: data.hits[index].recipe.url,
+  };
+  savedRecipes.push(mealObj);
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+  console.log(mealObj);
+}
