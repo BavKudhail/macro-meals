@@ -32,3 +32,7 @@ body {
 .fats {
   background-color: #37de85;
 }
+
+.meal-section {
+  display: none;
+}
