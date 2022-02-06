@@ -353,7 +353,70 @@ function generateDinner() {
         e.preventDefault();
         saveRecipe("Dinner", data, dinnerRandom);
       });
+      // calling parameterised function to generate dinner card for tues
+      renderWeekdayDinner(
+        "#tues-dinner-image",
+        data,
+        "#tues-dinner-recipe-name",
+        "#tues-lunch-url",
+        "#tues-dinner-calories",
+        "#tues-dinner-protein",
+        "#tues-dinner-fats",
+        "#tues-dinner-carbs",
+        "#tues-saveDinner"
+      );
     });
+  });
+}
+// parameterised function that will generate dinner cards for any weekday
+function renderWeekdayDinner(
+  weekdayImage,
+  data,
+  weekdayRecipeName,
+  weekdayUrl,
+  weekdayCals,
+  weekdayProtein,
+  weekdayFats,
+  weekdayCarbs,
+  weekdaySaveDinner
+) {
+  var weekdayDinnerRandom = Math.floor(Math.random() * 19);
+  $(weekdayImage).attr(
+    "src",
+    data.hits[weekdayDinnerRandom].recipe.images.LARGE.url
+  );
+  $(weekdayRecipeName).text(data.hits[weekdayDinnerRandom].recipe.label);
+  $(weekdayUrl).attr("href", data.hits[weekdayDinnerRandom].recipe.url);
+  // nutrition
+  // lunch nutrition values
+
+  $(weekdayCals).text(
+    Math.floor(
+      data.hits[weekdayDinnerRandom].recipe.calories /
+        data.hits[weekdayDinnerRandom].recipe.yield
+    )
+  );
+  $(weekdayProtein).text(
+    Math.floor(
+      data.hits[weekdayDinnerRandom].recipe.totalNutrients.PROCNT.quantity /
+        data.hits[weekdayDinnerRandom].recipe.yield
+    ) + "g"
+  );
+  $(weekdayFats).text(
+    Math.floor(
+      data.hits[weekdayDinnerRandom].recipe.totalNutrients.FAT.quantity /
+        data.hits[weekdayDinnerRandom].recipe.yield
+    ) + "g"
+  );
+  $(weekdayCarbs).text(
+    Math.floor(
+      data.hits[weekdayDinnerRandom].recipe.totalNutrients.CHOCDF.quantity /
+        data.hits[weekdayDinnerRandom].recipe.yield
+    ) + "g"
+  );
+  $(weekdaySaveDinner).on("click", function (e) {
+    e.preventDefault();
+    saveRecipe("Dinner", data, weekdayDinnerRandom);
   });
 }
 
@@ -369,6 +432,7 @@ $("#backBtn").on("click", function () {
   $("#backBtn").removeClass("flex");
 });
 
+// save recipe functionality, needs to be called in each generate meals function and each weekday
 function saveRecipe(mealtime, data, index) {
   savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
   console.log(savedRecipes);
