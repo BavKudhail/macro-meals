@@ -33,6 +33,21 @@ body {
   background-color: #37de85;
 }
 
-.meal-section {
-  display: none;
+.show {
+  display: contents;
+}
+
+.img-div {
+  width: 18.75rem;
+  height: 18.75rem;
+}
+
+.meal-image {
+  object-fit: fill;
+  max-height: 18.75rem;
+  max-width: 18.75rem;
+}
+
+.meal-card {
+  max-width: 18.75rem;
 }
