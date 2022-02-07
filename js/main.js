@@ -184,6 +184,53 @@ function generateBreakfast() {
             data.hits[breakfastRandom].recipe.yield
         )
       );
+      renderWeekdayMeals(
+        "#day2-breakfast-image",
+        data,
+        "#day2-breakfast-recipe-name",
+        "#day2-breakfast-url",
+        "#day2-break-fast-calories",
+        "#day2-breakfast-protein",
+        "#day2-breakfast-fats",
+        "#day2-breakfast-carbs"
+      );
+      renderWeekdayMeals(
+        "#day3-breakfast-image",
+        data,
+        "#day3-breakfast-recipe-name",
+        "#day3-breakfast-url",
+        "#day3-break-fast-calories",
+        "#day3-breakfast-protein",
+        "#day3-breakfast-fats",
+        "#day3-breakfast-carbs"
+      );
+      renderWeekdayMeals(
+        "#day4-breakfast-image",
+        data,
+        "#day4-breakfast-recipe-name",
+        "#day4-breakfast-url",
+        "#day4-break-fast-calories",
+        "#day4-breakfast-protein",
+        "#day4-breakfast-fats",
+        "#day4-breakfast-carbs"
+      );
+      renderWeekdayMeals(
+        "#day5-breakfast-image",
+        data,
+        "#day5-breakfast-recipe-name",
+        "#day5-breakfast-url",
+        "#day5-break-fast-calories",
+        "#day5-breakfast-protein",
+        "#day5-breakfast-fats",
+        "#day5-breakfast-carbs"
+      );
+      //   ("#day2-breakfast-image");
+      //   ("#day2-breakfast-recipe-name");
+      //   ("#day2- break-fast-calories");
+      //   ("#day2-breakfast-protein");
+      //   ("#day2-breakfast-fats");
+      //   ("#day2-breakfast-carbs");
+      //   ("#day2-breakfast-url");
     });
   });
 }
@@ -235,6 +282,46 @@ function generateLunch() {
           data.hits[lunchRandom].recipe.totalNutrients.CHOCDF.quantity /
             data.hits[lunchRandom].recipe.yield
         ) + "g"
+      );
+      renderWeekdayMeals(
+        "#day2-lunch-image",
+        data,
+        "#day2-lunch-recipe-name",
+        "#day2-lunch-url",
+        "#day2-lunch-calories",
+        "#day2-lunch-protein",
+        "#day2-lunch-fats",
+        "#day2-lunch-carbs"
+      );
+      renderWeekdayMeals(
+        "#day3-lunch-image",
+        data,
+        "#day3-lunch-recipe-name",
+        "#day3-lunch-url",
+        "#day3-lunch-calories",
+        "#day3-lunch-protein",
+        "#day3-lunch-fats",
+        "#day3-lunch-carbs"
+      );
+      renderWeekdayMeals(
+        "#day4-lunch-image",
+        data,
+        "#day4-lunch-recipe-name",
+        "#day4-lunch-url",
+        "#day4-lunch-calories",
+        "#day4-lunch-protein",
+        "#day4-lunch-fats",
+        "#day4-lunch-carbs"
+      );
+      renderWeekdayMeals(
+        "#day5-lunch-image",
+        data,
+        "#day5-lunch-recipe-name",
+        "#day5-lunch-url",
+        "#day5-lunch-calories",
+        "#day5-lunch-protein",
+        "#day5-lunch-fats",
+        "#day5-lunch-carbs"
       );
     });
   });
@@ -288,6 +375,46 @@ function generateDinner() {
           data.hits[dinnerRandom].recipe.totalNutrients.CHOCDF.quantity /
             data.hits[dinnerRandom].recipe.yield
         ) + "g"
+      );
+      renderWeekdayMeals(
+        "#day2-dinner-image",
+        data,
+        "#day2-dinner-recipe-name",
+        "#day2-dinner-url",
+        "#day2-dinner-calories",
+        "#day2-dinner-protein",
+        "#day2-dinner-fats",
+        "#day2-dinner-carbs"
+      );
+      renderWeekdayMeals(
+        "#day3-dinner-image",
+        data,
+        "#day3-dinner-recipe-name",
+        "#day3-dinner-url",
+        "#day3-dinner-calories",
+        "#day3-dinner-protein",
+        "#day3-dinner-fats",
+        "#day3-dinner-carbs"
+      );
+      renderWeekdayMeals(
+        "#day4-dinner-image",
+        data,
+        "#day4-dinner-recipe-name",
+        "#day4-dinner-url",
+        "#day4-dinner-calories",
+        "#day4-dinner-protein",
+        "#day4-dinner-fats",
+        "#day4-dinner-carbs"
+      );
+      renderWeekdayMeals(
+        "#day5-dinner-image",
+        data,
+        "#day5-dinner-recipe-name",
+        "#day5-dinner-url",
+        "#day5-dinner-calories",
+        "#day5-dinner-protein",
+        "#day5-dinner-fats",
+        "#day5-dinner-carbs"
       );
     });
   });
@@ -386,8 +513,54 @@ function displayRecipeBook() {
   });
 }
 
-$("#backBtn").on("click", function () {
-  localStorage.clear();
-  location.reload();
-  $("#backBtn").removeClass("flex");
-});
+function renderWeekdayMeals(
+  recipeImage,
+  data,
+  recipeName,
+  recipeUrl,
+  recipeCalories,
+  recipeProtein,
+  recipeFats,
+  recipeCarbs
+) {
+  recipeRandomNum = Math.floor(Math.random() * 19);
+  //   $(backButton).on("click", function () {
+  //     localStorage.clear();
+  //     location.reload();
+  //     $(backButton).removeClass("flex");
+  //   });
+
+  $(recipeImage).attr(
+    "src",
+    data.hits[recipeRandomNum].recipe.images.LARGE.url
+  );
+  $(recipeName).text(data.hits[recipeRandomNum].recipe.label);
+  $(recipeUrl).attr("href", data.hits[recipeRandomNum].recipe.url);
+  // nutrition
+  // lunch nutrition values
+  //   console.log(dinnerRandom);
+  $(recipeCalories).text(
+    Math.floor(
+      data.hits[recipeRandomNum].recipe.calories /
+        data.hits[recipeRandomNum].recipe.yield
+    )
+  );
+  $(recipeProtein).text(
+    Math.floor(
+      data.hits[recipeRandomNum].recipe.totalNutrients.PROCNT.quantity /
+        data.hits[recipeRandomNum].recipe.yield
+    ) + "g"
+  );
+  $(recipeFats).text(
+    Math.floor(
+      data.hits[recipeRandomNum].recipe.totalNutrients.FAT.quantity /
+        data.hits[recipeRandomNum].recipe.yield
+    ) + "g"
+  );
+  $(recipeCarbs).text(
+    Math.floor(
+      data.hits[recipeRandomNum].recipe.totalNutrients.CHOCDF.quantity /
+        data.hits[recipeRandomNum].recipe.yield
+    ) + "g"
+  );
+}
