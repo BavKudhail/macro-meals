@@ -430,9 +430,13 @@ function generateMeals() {
 
 // cookbook experiment
 var cookbookArray = [];
-$("#cookbook-number").text(
-  JSON.parse(localStorage.getItem("savedRecipes")).length
-);
+if (localStorage.getItem("savedRecipes")) {
+  $("#cookbook-number").text(
+    JSON.parse(localStorage.getItem("savedRecipes")).length
+  );
+} else {
+  $("#cookbook-number").text("");
+}
 
 // modal back btn
 $("#cookbookBackBtn").on("click", function () {
