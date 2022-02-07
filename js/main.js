@@ -303,7 +303,9 @@ function generateMeals() {
 
 // cookbook experiment
 var cookbookArray = [];
-$("#cookbook-number").text(cookbookArray.length);
+$("#cookbook-number").text(
+  JSON.parse(localStorage.getItem("savedRecipes")).length
+);
 
 // modal back btn
 $("#cookbookBackBtn").on("click", function () {
@@ -324,6 +326,11 @@ function showCookBook() {
 
 // local storage cook book
 function saveRecipeBook() {
+  savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+  if (savedRecipes == null) {
+    savedRecipes = [];
+  }
+  console.log(savedRecipes);
   // create recipe variables based on the card clicked
   var mealType = $(this).parent().find(".meal-type").text();
   var recipeName = $(this).parent().find(".recipe-name").text();
@@ -338,16 +345,22 @@ function saveRecipeBook() {
     imageURL: imageUrl,
     recipeURL: recipeURL,
   };
+  savedRecipes.push(recipeObject);
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
 
   cookbookArray.push(recipeObject);
   console.log(cookbookArray);
-  $("#cookbook-number").text(cookbookArray.length);
+  $("#cookbook-number").text(
+    JSON.parse(localStorage.getItem("savedRecipes")).length
+  );
 }
 
 function displayRecipeBook() {
   console.log("clicked button");
   // for each recipe in array create a card
-  cookbookArray.forEach(function (recipe) {
+  savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
+  //   cookbookArray.forEach(function (recipe) {
+  savedRecipes.forEach(function (recipe) {
     // go through each object and create this card
     var cookbookRecipe = $(`
     <div class="flex justify-center m-5 ">
