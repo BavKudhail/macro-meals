@@ -12,6 +12,9 @@
 .bg-orange-custom {
   background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 }
+.bg-darkpink-custom {
+  background-image: linear-gradient(340deg, #f5458a 0%, #ff6584 100%);
+}
 
 .recipe-card-border {
   border: 1px solid #7f23f5;
@@ -50,4 +53,28 @@ body {
 
 .meal-card {
   max-width: 18.75rem;
+}
+
+.heartBtn {
+  color: #fff;
+  font-size: 1.25rem;
+  margin: 0.5rem;
+  position: absolute;
+  background-image: linear-gradient(340deg, #7f23f5 0%, #a970f2 100%);
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.heartBtn:hover {
+  background-image: linear-gradient(19deg, #f741b4 0%, #cb7dc8 100%);
+  transform: scale(1.1);
+}
+
+.cookbookBtn {
+  background-image: linear-gradient(340deg, #f5458a 0%, #ff6584 100%);
+}
+.cookbookBtn:hover {
+  transform: scale(1.1);
+  background-image: linear-gradient(340deg, #7f23f5 0%, #a970f2 100%);
 }
