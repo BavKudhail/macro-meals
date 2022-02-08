@@ -21,14 +21,20 @@ function generateUserSummary(event) {
   var userGoal = $('#goal').val();
   var activitylevel = $('#activity-level').val();
 
-  if (age < 10 || age > 80) {
+  $('#alert-ok-btn').on('click', function () {
+    $('#alert-modal-container').addClass('form-none');
+  });
+
+  if (age < 18 || age > 80) {
     // alert("Please enter an age between 10-80");
     $('#alert-modal-container').removeClass('form-none');
-    $('#alert-text').text('Please enter an age between 10-80');
+    $('#alert-text').text('Please enter an age between 18-80');
   } else if (height < 130 || height > 230) {
-    alert('Please enter a height between 130cm - 230cm');
+    $('#alert-modal-container').removeClass('form-none');
+    $('#alert-text').text('Please enter a height between 130cm - 230cm');
   } else if (weight < 40 || weight > 160) {
-    alert('Please enter a weight between 40kg - 160kg');
+    $('#alert-modal-container').removeClass('form-none');
+    $('#alert-text').text('Please enter a weight between 40kg - 160kg');
   } else {
     // fetching fitness API data
     fetch(
@@ -298,8 +304,7 @@ if (localStorage.getItem('savedRecipes')) {
 
 // cookbook back button
 $('#cookbookBackBtn').on('click', function () {
-  history.back();
-  location.reload();
+  $('#cookBookContainer').removeClass('flex justify-center');
 });
 
 // when I click heart, execute saveRecipeBook()
@@ -346,7 +351,7 @@ function displayRecipeBook() {
   savedRecipes.forEach(function (recipe) {
     // go through each object and create this card
     var cookbookRecipe = $(`
-    <div class="flex justify-center m-5 ">
+    <div class="recipe-item flex justify-center m-5 ">
                 <div class="rounded-lg shadow-lg bg-white">
                 
                   <div class="p-6">
@@ -394,5 +399,16 @@ $('#backBtn').on('click', function () {
 $('#cookBookReset').on('click', function () {
   console.log('reset cookbook');
   localStorage.removeItem('savedRecipes');
-  location.reload();
+  $('#cookBookContainer').removeClass('flex justify-center');
+  removeRecipes();
 });
+
+function removeRecipes() {
+  $('.cookbookRecipes').html('');
+  $('#cookbook-number').text('0');
+}
+
+if (!localStorage.getItem('savedRecipes')) {
+  $('#cookbook-number').text('0');
+}
+// $('#cookbook-number').text(JSON.parse(localStorage.getItem('savedRecipes')).length);
