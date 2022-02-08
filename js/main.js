@@ -170,41 +170,18 @@ function generateBreakfast() {
     return res.json().then(function (data) {
       console.log(data);
       // breakfast card
-      var breakfastRandom = Math.floor(Math.random() * 19);
 
-      $("#breakfast-image").attr(
-        "src",
-        data.hits[breakfastRandom].recipe.images.LARGE.url
-      );
-      $("#breakfast-protein").text(
-        Math.floor(
-          data.hits[breakfastRandom].recipe.totalNutrients.PROCNT.quantity /
-            data.hits[breakfastRandom].recipe.yield
-        ) + "g"
-      );
-      $("#breakfast-fats").text(
-        Math.floor(
-          data.hits[breakfastRandom].recipe.totalNutrients.FAT.quantity /
-            data.hits[breakfastRandom].recipe.yield
-        ) + "g"
-      );
-      $("#breakfast-carbs").text(
-        Math.floor(
-          data.hits[breakfastRandom].recipe.totalNutrients.CHOCDF.quantity /
-            data.hits[breakfastRandom].recipe.yield
-        ) + "g"
-      );
-      $("#breakfast-recipe-name").text(data.hits[breakfastRandom].recipe.label);
-      $("#breakfast-url").attr("href", data.hits[breakfastRandom].recipe.url);
-      console.log(data.hits[breakfastRandom].recipe);
-      console.log(data.hits[breakfastRandom].recipe.yield);
-      $("#break-fast-calories").text(
-        Math.floor(
-          data.hits[breakfastRandom].recipe.calories /
-            data.hits[breakfastRandom].recipe.yield
-        )
-      );
       // render meals for all weekdays
+      renderWeekdayMeals(
+        "#day1-breakfast-image",
+        data,
+        "#day1-breakfast-recipe-name",
+        "#day1-breakfast-url",
+        "#day1-break-fast-calories",
+        "#day1-breakfast-protein",
+        "#day1-breakfast-fats",
+        "#day1-breakfast-carbs"
+      );
       renderWeekdayMeals(
         "#day2-breakfast-image",
         data,
@@ -265,38 +242,16 @@ function generateLunch() {
     return res.json().then(function (data) {
       var lunchRandom = Math.floor(Math.random() * 19);
       console.log(data);
-      // lunch card
-      $("#lunch-image").attr(
-        "src",
-        data.hits[lunchRandom].recipe.images.LARGE.url
-      );
-      $("#lunch-recipe-name").text(data.hits[lunchRandom].recipe.label);
-      $("#lunch-url").attr("href", data.hits[lunchRandom].recipe.url);
 
-      // lunch nutrition values
-      $("#lunch-calories").text(
-        Math.floor(
-          data.hits[lunchRandom].recipe.calories /
-            data.hits[lunchRandom].recipe.yield
-        )
-      );
-      $("#lunch-protein").text(
-        Math.floor(
-          data.hits[lunchRandom].recipe.totalNutrients.PROCNT.quantity /
-            data.hits[lunchRandom].recipe.yield
-        ) + "g"
-      );
-      $("#lunch-fats").text(
-        Math.floor(
-          data.hits[lunchRandom].recipe.totalNutrients.FAT.quantity /
-            data.hits[lunchRandom].recipe.yield
-        ) + "g"
-      );
-      $("#lunch-carbs").text(
-        Math.floor(
-          data.hits[lunchRandom].recipe.totalNutrients.CHOCDF.quantity /
-            data.hits[lunchRandom].recipe.yield
-        ) + "g"
+      renderWeekdayMeals(
+        "#day1-lunch-image",
+        data,
+        "#day1-lunch-recipe-name",
+        "#day1-lunch-url",
+        "#day1-lunch-calories",
+        "#day1-lunch-protein",
+        "#day1-lunch-fats",
+        "#day1-lunch-carbs"
       );
       renderWeekdayMeals(
         "#day2-lunch-image",
@@ -359,38 +314,16 @@ function generateDinner() {
     return res.json().then(function (data) {
       console.log(data);
       // dinner card
-      $("#dinner-image").attr(
-        "src",
-        data.hits[dinnerRandom].recipe.images.LARGE.url
-      );
-      $("#dinner-recipe-name").text(data.hits[dinnerRandom].recipe.label);
-      $("#dinner-url").attr("href", data.hits[dinnerRandom].recipe.url);
-      // nutrition
-      // lunch nutrition values
-      console.log(dinnerRandom);
-      $("#dinner-calories").text(
-        Math.floor(
-          data.hits[dinnerRandom].recipe.calories /
-            data.hits[dinnerRandom].recipe.yield
-        )
-      );
-      $("#dinner-protein").text(
-        Math.floor(
-          data.hits[dinnerRandom].recipe.totalNutrients.PROCNT.quantity /
-            data.hits[dinnerRandom].recipe.yield
-        ) + "g"
-      );
-      $("#dinner-fats").text(
-        Math.floor(
-          data.hits[dinnerRandom].recipe.totalNutrients.FAT.quantity /
-            data.hits[dinnerRandom].recipe.yield
-        ) + "g"
-      );
-      $("#dinner-carbs").text(
-        Math.floor(
-          data.hits[dinnerRandom].recipe.totalNutrients.CHOCDF.quantity /
-            data.hits[dinnerRandom].recipe.yield
-        ) + "g"
+
+      renderWeekdayMeals(
+        "#day1-dinner-image",
+        data,
+        "#day1-dinner-recipe-name",
+        "#day1-dinner-url",
+        "#day1-dinner-calories",
+        "#day1-dinner-protein",
+        "#day1-dinner-fats",
+        "#day1-dinner-carbs"
       );
       renderWeekdayMeals(
         "#day2-dinner-image",
