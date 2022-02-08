@@ -80,3 +80,14 @@ body {
   transform: scale(1.1);
   background-image: linear-gradient(340deg, #7f23f5 0%, #a970f2 100%);
 }
+
+.inactive-tab {
+  pointer-events: none;
+}
+
+.active {
+  color: #b721ff;
+}
+.purple-tab {
+  color: #b721ff;
+}
