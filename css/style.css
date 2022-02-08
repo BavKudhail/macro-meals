@@ -78,3 +78,8 @@ body {
   transform: scale(1.1);
   background-image: linear-gradient(340deg, #7f23f5 0%, #a970f2 100%);
 }
+
+.meal-card:hover {
+  transform: scale(1.04);
+  transition: ease 250ms;
+}
