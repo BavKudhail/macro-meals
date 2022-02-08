@@ -1,7 +1,13 @@
 // submit button event listner
 $("#user-form").on("submit", generateUserSummary);
 
-// generate user summary
+// USER DATA LOGIC
+
+// If age is lower than 5 or over 80
+// Then
+// console.log("please enter an age between 5-80")
+
+// fetch user health data
 function generateUserSummary(event) {
   event.preventDefault();
   console.log("submitted form");
@@ -43,7 +49,6 @@ function generateUserSummary(event) {
     .then(function (data) {
       console.log(data);
       // function that makes the users summary visible in a chart
-      //   renderUserData(data);
       saveToLocal(data);
       renderUserDataRefresh();
       removeForm();
@@ -57,21 +62,22 @@ function generateUserSummary(event) {
     });
 }
 
-// if (localStorage.getItem('calories')) {
-//   $('.meal-section').fadeIn('.show');
-// }
-
+// when user summary loads...
 function removeForm() {
   $("#form-container").addClass("form-none");
+  // display cookbook and back button
+  $("#cookBookBtn").removeClass("form-none");
+  $("#backBtn").addClass("flex");
 }
 
+// create | ammend | append userCard
 function renderUserDataRefresh() {
-  $("#backBtn").addClass("flex");
-
   var userCard = $(`
-    <div class="flex mx-10 mt-1 mb-5 justify-center inline-block px-3 py-3 bg-purple-custom text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg">
-    <h1 class="font-semibold"> Target Calories: </h1>
-    <p>${localStorage.getItem("calories")}</p>
+    <div class="flex mx-10 mt-1 mb-5 justify-center content-center items-center inline-block px-3 py-3 bg-purple-custom text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg ">
+    <h1 class="font-semibold content-center"> Target Calories: </h1>
+    <p class="px-5 text-2xl content-center" >${localStorage.getItem(
+      "calories"
+    )}</p>
     </div>
     <div class="flex justify-center">
     <div class="block p-6 rounded-lg shadow-lg bg-pink-custom  max-w-sm ">
@@ -80,6 +86,8 @@ function renderUserDataRefresh() {
     </div>
     </div>
       `);
+
+  // create doughnut chart
 
   $("#userCard").append(userCard);
   const dataDoughnut = {
@@ -132,8 +140,9 @@ function saveToLocal(userData) {
   localStorage.setItem("calories", calories);
 }
 
-// recipe Searcher Api
+// RECIPE SEARCHER LOGIC
 
+// generate breakfast
 function generateBreakfast() {
   var totalCalories = localStorage.getItem("calories");
   var breakfastCalories = Math.floor(totalCalories * 0.2);
@@ -184,6 +193,7 @@ function generateBreakfast() {
             data.hits[breakfastRandom].recipe.yield
         )
       );
+      // render meals for all weekdays
       renderWeekdayMeals(
         "#day2-breakfast-image",
         data,
@@ -224,17 +234,11 @@ function generateBreakfast() {
         "#day5-breakfast-fats",
         "#day5-breakfast-carbs"
       );
-      //   ("#day2-breakfast-image");
-      //   ("#day2-breakfast-recipe-name");
-      //   ("#day2- break-fast-calories");
-      //   ("#day2-breakfast-protein");
-      //   ("#day2-breakfast-fats");
-      //   ("#day2-breakfast-carbs");
-      //   ("#day2-breakfast-url");
     });
   });
 }
 
+// generate lunch
 function generateLunch() {
   var totalCalories = localStorage.getItem("calories");
   var lunchCalories = Math.floor(totalCalories * 0.3);
@@ -327,6 +331,7 @@ function generateLunch() {
   });
 }
 
+// generate dinner
 function generateDinner() {
   var totalCalories = localStorage.getItem("calories");
   var dinnerCalories = Math.floor(totalCalories * 0.5);
@@ -420,6 +425,7 @@ function generateDinner() {
   });
 }
 
+// generate meals
 function generateMeals() {
   Promise.all([generateBreakfast(), generateLunch(), generateDinner()]).then(
     () => {
@@ -428,8 +434,10 @@ function generateMeals() {
   );
 }
 
-// cookbook experiment
+// COOK BOOK LOGIC
+
 var cookbookArray = [];
+// you have * recipes saved in your cookbook
 if (localStorage.getItem("savedRecipes")) {
   $("#cookbook-number").text(
     JSON.parse(localStorage.getItem("savedRecipes")).length
@@ -438,22 +446,16 @@ if (localStorage.getItem("savedRecipes")) {
   $("#cookbook-number").text("");
 }
 
-// modal back btn
+// cookbook back button
 $("#cookbookBackBtn").on("click", function () {
-  console.log("go back");
   history.back();
   location.reload();
 });
 
-// save recipe to local storage event listner
+// when I click heart, execute saveRecipeBook()
 $(".heartBtn").on("click", saveRecipeBook);
-$("#cookBookBtn").on("click", showCookBook);
-
-function showCookBook() {
-  console.log("clicked");
-  $("#cookBookContainer").addClass("flex justify-center");
-  displayRecipeBook();
-}
+// when I click on my cook book, execute showCookBook()
+$("#cookBookBtn").on("click", displayRecipeBook);
 
 // local storage cook book
 function saveRecipeBook() {
@@ -487,7 +489,9 @@ function saveRecipeBook() {
 }
 
 function displayRecipeBook() {
-  console.log("clicked button");
+  // show cookbook modal
+  $("#cookBookContainer").addClass("flex justify-center");
+
   // for each recipe in array create a card
   savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
   //   cookbookArray.forEach(function (recipe) {
@@ -528,11 +532,6 @@ function renderWeekdayMeals(
   recipeCarbs
 ) {
   recipeRandomNum = Math.floor(Math.random() * 19);
-  //   $(backButton).on("click", function () {
-  //     localStorage.clear();
-  //     location.reload();
-  //     $(backButton).removeClass("flex");
-  //   });
 
   $(recipeImage).attr(
     "src",
@@ -542,7 +541,6 @@ function renderWeekdayMeals(
   $(recipeUrl).attr("href", data.hits[recipeRandomNum].recipe.url);
   // nutrition
   // lunch nutrition values
-  //   console.log(dinnerRandom);
   $(recipeCalories).text(
     Math.floor(
       data.hits[recipeRandomNum].recipe.calories /
@@ -568,3 +566,17 @@ function renderWeekdayMeals(
     ) + "g"
   );
 }
+
+// go back to homepage
+$("#backBtn").on("click", function () {
+  localStorage.clear();
+  location.reload();
+  $("#backBtn").removeClass("flex");
+});
+
+// remove recipes from local storage
+$("#cookBookReset").on("click", function () {
+  console.log("reset cookbook");
+  localStorage.removeItem("savedRecipes");
+  location.reload();
+});

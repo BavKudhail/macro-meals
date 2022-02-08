@@ -50,7 +50,7 @@
                 type="text"
                 required
                 class="appearance-none rounded-full mb-3 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Age"
+                placeholder="Enter an age between 0 - 80"
               />
             </div>
             <!-- gender -->
@@ -80,7 +80,7 @@
                 type="height"
                 required
                 class="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-3"
-                placeholder="Height"
+                placeholder="Height in cm"
               />
             </div>
             <!-- weight -->
@@ -92,7 +92,7 @@
                 type="weight"
                 required
                 class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm rounded-full mb-3"
-                placeholder="Weight"
+                placeholder="Weight in kg"
               />
             </div>
             <!-- goal -->
@@ -143,13 +143,13 @@
     
 
     <div class="flex justify-end px-10">
-    <button type="button" id="backBtn" class="form-none px-6 mt-3 p-1 border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded hover:bg-rose-500 hover:text-white">Back <i class="fas fa-backspace"></i></button>
+    <button type="button" id="backBtn" class="form-none px-6 mt-3 p-1 border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-rose-500 hover:text-white">Back <i class="fas fa-backspace"></i></button>
     </div>
     <div id="userCard">
     </div>
     <!-- cookbook -->
     <div class="flex justify-center">
-      <button item id="cookBookBtn" class="cookbookBtn expand rounded-lg shadow-lg m-3 max-w-sm p-3 text-white font-semibold " id="cookBookBtn"><div>You have saved <span id="cookbook-number"></span> new item in your cookbook!</div><div><i class="fas fa-heart"></i></div>
+      <button item id="cookBookBtn" class="form-none cookbookBtn expand rounded-lg shadow-lg m-3 max-w-sm p-3 text-white font-semibold " id="cookBookBtn"><div>You have saved <span id="cookbook-number"></span> new item in your cookbook!</div><div><i class="fas fa-heart animate-bounce"></i></div>
       </button>
     </div>
     <!-- test -->
@@ -180,7 +180,7 @@
         </div>
       </div>
       <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Reset</button>
+        <button type="button" id="cookBookReset" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Reset</button>
         <button  id="cookbookBackBtn" type="button" class="mt-3 w-full inline-flex justify-center rounded-md bg-purple-600 shadow-sm px-4 py-2 text-white text-base font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Go back</button>
       </div>
     </div>
@@ -209,7 +209,7 @@
         </ul>
     </div>
     <div id="myTabContent">
-        <div class="p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="monday" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="monday" role="tabpanel" aria-labelledby="profile-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Monday -->
                 <!-- Breakfast card -->
@@ -302,7 +302,7 @@
                 </div>
               </div>
         </div>
-        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="tuesday" role="tabpanel" aria-labelledby="dashboard-tab">
+        <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="tuesday" role="tabpanel" aria-labelledby="dashboard-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Tuesday -->
                 <!-- Breakfast card -->
@@ -395,7 +395,7 @@
                 </div>
               </div>
         </div>
-        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="wednesday" role="tabpanel" aria-labelledby="settings-tab">
+        <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="wednesday" role="tabpanel" aria-labelledby="settings-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Wednesday -->
                 <!-- Breakfast card -->
@@ -488,7 +488,7 @@
                 </div>
               </div>
         </div>
-        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="thursday" role="tabpanel" aria-labelledby="contacts-tab">
+        <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="thursday" role="tabpanel" aria-labelledby="contacts-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Thursdayday4- -->
                 <!-- Breakfast card -->
@@ -581,7 +581,7 @@
                 </div>
               </div>
         </div>
-        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="friday" role="tabpanel" aria-labelledby="contacts-tab">
+        <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="friday" role="tabpanel" aria-labelledby="contacts-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Friday -->
                 <!-- Breakfast card -->
