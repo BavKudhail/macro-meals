@@ -23,6 +23,8 @@ function generateUserSummary(event) {
   var userGoal = $("#goal").val();
   var activitylevel = $("#activity-level").val();
 
+  var day1Calories = 0;
+
   $("#alert-ok-btn").on("click", function () {
     $("#alert-modal-container").addClass("form-none");
   });
@@ -149,6 +151,8 @@ if (localStorage.getItem("calories")) {
   removeForm();
 }
 
+day1Calories = localStorage.getItem("calories");
+
 function saveToLocal(userData) {
   var protein = Math.round(userData.data.balanced.protein);
   var fat = Math.round(userData.data.balanced.fat);
@@ -205,8 +209,10 @@ function generateBreakfast() {
         "#day1-breakfast-protein",
         "#day1-breakfast-fats",
         "#day1-breakfast-carbs",
-        "#day1-breakfast-refresh-btn"
+        "#day1-breakfast-refresh-btn",
+        "breakfastDayOneCalories"
       );
+
       renderWeekdayMeals(
         "#day2-breakfast-image",
         data,
@@ -216,7 +222,8 @@ function generateBreakfast() {
         "#day2-breakfast-protein",
         "#day2-breakfast-fats",
         "#day2-breakfast-carbs",
-        "#day2-breakfast-refresh-btn"
+        "#day2-breakfast-refresh-btn",
+        "breakfastDayTwoCalories"
       );
       renderWeekdayMeals(
         "#day3-breakfast-image",
@@ -227,7 +234,8 @@ function generateBreakfast() {
         "#day3-breakfast-protein",
         "#day3-breakfast-fats",
         "#day3-breakfast-carbs",
-        "#day3-breakfast-refresh-btn"
+        "#day3-breakfast-refresh-btn",
+        "breakfastDayThreeCalories"
       );
       renderWeekdayMeals(
         "#day4-breakfast-image",
@@ -238,7 +246,8 @@ function generateBreakfast() {
         "#day4-breakfast-protein",
         "#day4-breakfast-fats",
         "#day4-breakfast-carbs",
-        "#day4-breakfast-refresh-btn"
+        "#day4-breakfast-refresh-btn",
+        "breakfastDayFourCalories"
       );
       renderWeekdayMeals(
         "#day5-breakfast-image",
@@ -249,7 +258,8 @@ function generateBreakfast() {
         "#day5-breakfast-protein",
         "#day5-breakfast-fats",
         "#day5-breakfast-carbs",
-        "#day5-breakfast-refresh-btn"
+        "#day5-breakfast-refresh-btn",
+        "breakfastDayFiveCalories"
       );
     });
     // .catch(function (error) {
@@ -258,6 +268,13 @@ function generateBreakfast() {
     // });
   });
 }
+
+var breakfastCalsNum = $("#day1-break-fast-calories").text;
+console.log($("#day1-break-fast-calories").text);
+// breakfastCalsNum.replace("calories: ", "");
+
+day1Calories -= parseInt($(breakfastCalsNum).text);
+console.log(day1Calories);
 
 // generate lunch
 function generateLunch() {
@@ -285,7 +302,8 @@ function generateLunch() {
         "#day1-lunch-protein",
         "#day1-lunch-fats",
         "#day1-lunch-carbs",
-        "#day1-lunch-refresh-btn"
+        "#day1-lunch-refresh-btn",
+        "lunchDayOneCalories"
       );
       renderWeekdayMeals(
         "#day2-lunch-image",
@@ -296,7 +314,8 @@ function generateLunch() {
         "#day2-lunch-protein",
         "#day2-lunch-fats",
         "#day2-lunch-carbs",
-        "#day2-lunch-refresh-btn"
+        "#day2-lunch-refresh-btn",
+        "lunchDayTwoCalories"
       );
       renderWeekdayMeals(
         "#day3-lunch-image",
@@ -307,7 +326,8 @@ function generateLunch() {
         "#day3-lunch-protein",
         "#day3-lunch-fats",
         "#day3-lunch-carbs",
-        "#day3-lunch-refresh-btn"
+        "#day3-lunch-refresh-btn",
+        "lunchDayThreeCalories"
       );
       renderWeekdayMeals(
         "#day4-lunch-image",
@@ -318,7 +338,8 @@ function generateLunch() {
         "#day4-lunch-protein",
         "#day4-lunch-fats",
         "#day4-lunch-carbs",
-        "#day4-lunch-refresh-btn"
+        "#day4-lunch-refresh-btn",
+        "lunchDayFourCalories"
       );
       renderWeekdayMeals(
         "#day5-lunch-image",
@@ -329,7 +350,8 @@ function generateLunch() {
         "#day5-lunch-protein",
         "#day5-lunch-fats",
         "#day5-lunch-carbs",
-        "#day5-lunch-refresh-btn"
+        "#day5-lunch-refresh-btn",
+        "lunchDayfiveCalories"
       );
     });
     // .catch(function (error) {
@@ -366,7 +388,8 @@ function generateDinner() {
         "#day1-dinner-protein",
         "#day1-dinner-fats",
         "#day1-dinner-carbs",
-        "#day1-dinner-refresh-btn"
+        "#day1-dinner-refresh-btn",
+        "dinnerDayOneCalories"
       );
       renderWeekdayMeals(
         "#day2-dinner-image",
@@ -377,7 +400,8 @@ function generateDinner() {
         "#day2-dinner-protein",
         "#day2-dinner-fats",
         "#day2-dinner-carbs",
-        "#day2-dinner-refresh-btn"
+        "#day2-dinner-refresh-btn",
+        "dinnerDayTwoCalories"
       );
       renderWeekdayMeals(
         "#day3-dinner-image",
@@ -388,7 +412,8 @@ function generateDinner() {
         "#day3-dinner-protein",
         "#day3-dinner-fats",
         "#day3-dinner-carbs",
-        "#day3-dinner-refresh-btn"
+        "#day3-dinner-refresh-btn",
+        "dinnerDayThreeCalories"
       );
       renderWeekdayMeals(
         "#day4-dinner-image",
@@ -399,7 +424,8 @@ function generateDinner() {
         "#day4-dinner-protein",
         "#day4-dinner-fats",
         "#day4-dinner-carbs",
-        "#day4-dinner-refresh-btn"
+        "#day4-dinner-refresh-btn",
+        "dinnerDayFourCalories"
       );
       renderWeekdayMeals(
         "#day5-dinner-image",
@@ -410,7 +436,8 @@ function generateDinner() {
         "#day5-dinner-protein",
         "#day5-dinner-fats",
         "#day5-dinner-carbs",
-        "#day5-dinner-refresh-btn"
+        "#day5-dinner-refresh-btn",
+        "dinnerDayFiveCalories"
       );
     });
     // .catch((error) => {
@@ -425,6 +452,46 @@ function generateMeals() {
   Promise.all([generateBreakfast(), generateLunch(), generateDinner()])
     .then(() => {
       $(".meal-section").fadeIn(".show");
+      $("#remainingCalsMon").text(
+        remainingCals(
+          JSON.parse(localStorage.getItem("calories")),
+          JSON.parse(localStorage.getItem("breakfastDayOneCalories")),
+          JSON.parse(localStorage.getItem("lunchDayOneCalories")),
+          JSON.parse(localStorage.getItem("dinnerDayOneCalories"))
+        )
+      );
+      $("#remainingCalsTue").text(
+        remainingCals(
+          JSON.parse(localStorage.getItem("calories")),
+          JSON.parse(localStorage.getItem("breakfastDayTwoCalories")),
+          JSON.parse(localStorage.getItem("lunchDayTwoCalories")),
+          JSON.parse(localStorage.getItem("dinnerDayTwoCalories"))
+        )
+      );
+      $("#remainingCalsWed").text(
+        remainingCals(
+          JSON.parse(localStorage.getItem("calories")),
+          JSON.parse(localStorage.getItem("breakfastDayThreeCalories")),
+          JSON.parse(localStorage.getItem("lunchDayThreeCalories")),
+          JSON.parse(localStorage.getItem("dinnerDayThreeCalories"))
+        )
+      );
+      $("#remainingCalsThurs").text(
+        remainingCals(
+          JSON.parse(localStorage.getItem("calories")),
+          JSON.parse(localStorage.getItem("breakfastDayFourCalories")),
+          JSON.parse(localStorage.getItem("lunchDayFourCalories")),
+          JSON.parse(localStorage.getItem("dinnerDayFourCalories"))
+        )
+      );
+      $("#remainingCalsFri").text(
+        remainingCals(
+          JSON.parse(localStorage.getItem("calories")),
+          JSON.parse(localStorage.getItem("breakfastDayFiveCalories")),
+          JSON.parse(localStorage.getItem("lunchDayfiveCalories")),
+          JSON.parse(localStorage.getItem("dinnerDayFiveCalories"))
+        )
+      );
     })
     .catch(function (error) {
       $("#alert-modal-container").removeClass("form-none");
@@ -547,7 +614,8 @@ function renderWeekdayMeals(
   recipeProtein,
   recipeFats,
   recipeCarbs,
-  refreshBtn
+  refreshBtn,
+  calories
 ) {
   recipeRandomNum = Math.floor(Math.random() * 19);
 
@@ -583,6 +651,13 @@ function renderWeekdayMeals(
         data.hits[recipeRandomNum].recipe.yield
     ) + "g"
   );
+  localStorage.setItem(
+    calories,
+    Math.floor(
+      data.hits[recipeRandomNum].recipe.calories /
+        data.hits[recipeRandomNum].recipe.yield
+    )
+  );
   $(refreshBtn).on("click", function () {
     renderWeekdayMeals(
       recipeImage,
@@ -593,7 +668,8 @@ function renderWeekdayMeals(
       recipeProtein,
       recipeFats,
       recipeCarbs,
-      refreshBtn
+      refreshBtn,
+      calories
     );
   });
 }
@@ -622,3 +698,22 @@ if (!localStorage.getItem("savedRecipes")) {
   $("#cookbook-number").text("0");
 }
 // $('#cookbook-number').text(JSON.parse(localStorage.getItem('savedRecipes')).length);
+
+function remainingCals(total, breakfast, lunch, dinner) {
+  console.log(total);
+  console.log(breakfast);
+  console.log(lunch);
+  console.log(dinner);
+  var bld = breakfast + lunch + dinner;
+  var remaining = total - bld;
+  return remaining;
+}
+
+console.log(
+  remainingCals(
+    JSON.parse(localStorage.getItem("calories")),
+    JSON.parse(localStorage.getItem("breakfastDayOneCalories")),
+    JSON.parse(localStorage.getItem("lunchDayOneCalories")),
+    JSON.parse(localStorage.getItem("dinnerDayOneCalories"))
+  )
+);
