@@ -258,11 +258,13 @@
     <div id="myTabContent">
         <div class="p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="monday" role="tabpanel" aria-labelledby="profile-tab">
             <div class="flex flex-wrap justify-around m-20">
+              <div>Remaining Calories: <span id="remainingCalsMon"></span></div>
                 <!-- Monday -->
                 <!-- Breakfast card -->
                 <div class="flex justify-center m-5 meal-card ">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                   <!-- heart button | save this recipe -->
+                  <button id="day1-breakfast-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   <div class="image-div"><img id="day1-breakfast-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   <div class="p-6">
@@ -291,6 +293,7 @@
               <div class="flex justify-center m-5 meal-card">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day1-lunch-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   
                     <div class="image-div"><img id="day1-lunch-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
@@ -321,6 +324,7 @@
               <div class="flex justify-center m-5 meal-card ">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day1-dinner-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                     <div class="image-div"><img id="day1-dinner-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   
@@ -351,11 +355,13 @@
         </div>
         <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="tuesday" role="tabpanel" aria-labelledby="dashboard-tab">
             <div class="flex flex-wrap justify-around m-20">
+              <div>Remaining Calories: <span id="remainingCalsTue"></span></div>
                 <!-- Tuesday -->
                 <!-- Breakfast card -->
                 <div class="flex justify-center m-5 meal-card ">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                   <!-- heart button | save this recipe -->
+                  <button id="day2-breakfast-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   <div class="image-div"><img id="day2-breakfast-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   <div class="p-6">
@@ -384,6 +390,7 @@
               <div class="flex justify-center m-5 meal-card">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day2-lunch-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   
                     <div class="image-div"><img id="day2-lunch-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
@@ -414,6 +421,7 @@
               <div class="flex justify-center m-5 meal-card ">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day2-dinner-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                     <div class="image-div"><img id="day2-dinner-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   
@@ -444,11 +452,13 @@
         </div>
         <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="wednesday" role="tabpanel" aria-labelledby="settings-tab">
             <div class="flex flex-wrap justify-around m-20">
+              <div>Remaining Calories: <span id="remainingCalsWed"></span></div>
                 <!-- Wednesday -->
                 <!-- Breakfast card -->
                 <div class="flex justify-center m-5 meal-card ">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                   <!-- heart button | save this recipe -->
+                  <button id="day3-breakfast-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   <div class="image-div"><img id="day3-breakfast-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   <div class="p-6">
@@ -477,6 +487,7 @@
               <div class="flex justify-center m-5 meal-card">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day3-lunch-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   
                     <div class="image-div"><img id="day3-lunch-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
@@ -507,7 +518,9 @@
               <div class="flex justify-center m-5 meal-card ">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day3-dinner-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
+
                     <div class="image-div"><img id="day3-dinner-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   
                   <div class="p-6">
@@ -537,11 +550,13 @@
         </div>
         <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="thursday" role="tabpanel" aria-labelledby="contacts-tab">
             <div class="flex flex-wrap justify-around m-20">
+              <div>Remaining Calories: <span id="remainingCalsThurs"></span></div>
                 <!-- Thursdayday4- -->
                 <!-- Breakfast card -->
                 <div class="flex justify-center m-5 meal-card ">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                   <!-- heart button | save this recipe -->
+                  <button id="day4-breakfast-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   <div class="image-div"><img id="day4-breakfast-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   <div class="p-6">
@@ -570,6 +585,7 @@
               <div class="flex justify-center m-5 meal-card">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day4-lunch-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   
                     <div class="image-div"><img id="day4-lunch-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
@@ -600,6 +616,7 @@
               <div class="flex justify-center m-5 meal-card ">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day4-dinner-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                     <div class="image-div"><img id="day4-dinner-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   
@@ -630,11 +647,13 @@
         </div>
         <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="friday" role="tabpanel" aria-labelledby="contacts-tab">
             <div class="flex flex-wrap justify-around m-20">
+              <div>Remaining Calories: <span id="remainingCalsFri"></span></div>
                 <!-- Friday -->
                 <!-- Breakfast card -->
                 <div class="flex justify-center m-5 meal-card ">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                   <!-- heart button | save this recipe -->
+                  <button id="day5-breakfast-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   <div class="image-div"><img id="day5-breakfast-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   <div class="p-6">
@@ -663,6 +682,7 @@
               <div class="flex justify-center m-5 meal-card">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day5-lunch-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                   
                     <div class="image-div"><img id="day5-lunch-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
@@ -693,6 +713,7 @@
               <div class="flex justify-center m-5 meal-card ">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
+                    <button id="day5-dinner-refresh-btn"><i class="fas fa-heart"></i></button>
                   <button class="heartBtn"><i class="fas fa-heart"></i></button>
                     <div class="image-div"><img id="day5-dinner-image" class="recipe-image rounded-t-lg meal-image" src="images/undraw_breakfast_psiw(2).svg" alt=""/></div>
                   
