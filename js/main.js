@@ -452,46 +452,7 @@ function generateMeals() {
   Promise.all([generateBreakfast(), generateLunch(), generateDinner()])
     .then(() => {
       $(".meal-section").fadeIn(".show");
-      $("#remainingCalsMon").text(
-        remainingCals(
-          JSON.parse(localStorage.getItem("calories")),
-          JSON.parse(localStorage.getItem("breakfastDayOneCalories")),
-          JSON.parse(localStorage.getItem("lunchDayOneCalories")),
-          JSON.parse(localStorage.getItem("dinnerDayOneCalories"))
-        )
-      );
-      $("#remainingCalsTue").text(
-        remainingCals(
-          JSON.parse(localStorage.getItem("calories")),
-          JSON.parse(localStorage.getItem("breakfastDayTwoCalories")),
-          JSON.parse(localStorage.getItem("lunchDayTwoCalories")),
-          JSON.parse(localStorage.getItem("dinnerDayTwoCalories"))
-        )
-      );
-      $("#remainingCalsWed").text(
-        remainingCals(
-          JSON.parse(localStorage.getItem("calories")),
-          JSON.parse(localStorage.getItem("breakfastDayThreeCalories")),
-          JSON.parse(localStorage.getItem("lunchDayThreeCalories")),
-          JSON.parse(localStorage.getItem("dinnerDayThreeCalories"))
-        )
-      );
-      $("#remainingCalsThurs").text(
-        remainingCals(
-          JSON.parse(localStorage.getItem("calories")),
-          JSON.parse(localStorage.getItem("breakfastDayFourCalories")),
-          JSON.parse(localStorage.getItem("lunchDayFourCalories")),
-          JSON.parse(localStorage.getItem("dinnerDayFourCalories"))
-        )
-      );
-      $("#remainingCalsFri").text(
-        remainingCals(
-          JSON.parse(localStorage.getItem("calories")),
-          JSON.parse(localStorage.getItem("breakfastDayFiveCalories")),
-          JSON.parse(localStorage.getItem("lunchDayfiveCalories")),
-          JSON.parse(localStorage.getItem("dinnerDayFiveCalories"))
-        )
-      );
+      callRemainingFunction();
     })
     .catch(function (error) {
       $("#alert-modal-container").removeClass("form-none");
@@ -671,6 +632,7 @@ function renderWeekdayMeals(
       refreshBtn,
       calories
     );
+    callRemainingFunction();
   });
 }
 
@@ -717,3 +679,46 @@ console.log(
     JSON.parse(localStorage.getItem("dinnerDayOneCalories"))
   )
 );
+
+function callRemainingFunction() {
+  $("#remainingCalsMon").text(
+    remainingCals(
+      JSON.parse(localStorage.getItem("calories")),
+      JSON.parse(localStorage.getItem("breakfastDayOneCalories")),
+      JSON.parse(localStorage.getItem("lunchDayOneCalories")),
+      JSON.parse(localStorage.getItem("dinnerDayOneCalories"))
+    )
+  );
+  $("#remainingCalsTue").text(
+    remainingCals(
+      JSON.parse(localStorage.getItem("calories")),
+      JSON.parse(localStorage.getItem("breakfastDayTwoCalories")),
+      JSON.parse(localStorage.getItem("lunchDayTwoCalories")),
+      JSON.parse(localStorage.getItem("dinnerDayTwoCalories"))
+    )
+  );
+  $("#remainingCalsWed").text(
+    remainingCals(
+      JSON.parse(localStorage.getItem("calories")),
+      JSON.parse(localStorage.getItem("breakfastDayThreeCalories")),
+      JSON.parse(localStorage.getItem("lunchDayThreeCalories")),
+      JSON.parse(localStorage.getItem("dinnerDayThreeCalories"))
+    )
+  );
+  $("#remainingCalsThurs").text(
+    remainingCals(
+      JSON.parse(localStorage.getItem("calories")),
+      JSON.parse(localStorage.getItem("breakfastDayFourCalories")),
+      JSON.parse(localStorage.getItem("lunchDayFourCalories")),
+      JSON.parse(localStorage.getItem("dinnerDayFourCalories"))
+    )
+  );
+  $("#remainingCalsFri").text(
+    remainingCals(
+      JSON.parse(localStorage.getItem("calories")),
+      JSON.parse(localStorage.getItem("breakfastDayFiveCalories")),
+      JSON.parse(localStorage.getItem("lunchDayfiveCalories")),
+      JSON.parse(localStorage.getItem("dinnerDayFiveCalories"))
+    )
+  );
+}
