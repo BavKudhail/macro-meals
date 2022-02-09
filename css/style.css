@@ -91,3 +91,7 @@ body {
 .purple-tab {
   color: #b721ff;
 }
+
+.not-allowed {
+  cursor: not-allowed;
+}
