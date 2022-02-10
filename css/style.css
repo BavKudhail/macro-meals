@@ -15,7 +15,7 @@
   background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 }
 .bg-darkpink-custom {
-  background-image: linear-gradient(340deg, #f5458a 0%, #ff6584 100%);
+  background-image: linear-gradient(62deg, #f5458a 0%, #ff97ac 100%);
 }
 
 .recipe-card-border {
@@ -55,6 +55,11 @@ body {
 
 .meal-card {
   max-width: 18.75rem;
+}
+
+.bg-lightblue-custom {
+  background-color: #ffdee9;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
 }
 
 .heartBtn {
