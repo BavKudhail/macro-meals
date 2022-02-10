@@ -8,10 +8,6 @@ $('#user-form').on('submit', generateUserSummary);
 
 // USER DATA LOGIC
 
-// If age is lower than 18 or over 80
-// Then
-// console.log("please enter an age between 5-80")
-
 var errorUrl = './error.html';
 
 // fetch user health data
@@ -76,10 +72,6 @@ function generateUserSummary(event) {
         saveToLocal(data);
         renderUserDataRefresh();
         removeForm();
-        // generateMeals();
-        // if (localStorage.getItem('calories')) {
-        //   $('.meal-section').removeClass('meal-section');
-        // }
       })
       .catch(function (error) {
         console.log('error fetching fitness API data');
@@ -257,10 +249,6 @@ function generateBreakfast() {
         'breakfastDayFiveCalories'
       );
     });
-    // .catch(function (error) {
-    //   console.log(error);
-    //   document.location.replace(errorUrl);
-    // });
   });
 }
 
@@ -353,10 +341,6 @@ function generateLunch() {
         'lunchDayfiveCalories'
       );
     });
-    // .catch(function (error) {
-    //   console.log(error);
-    //   document.location.replace(errorUrl);
-    // });
   });
 }
 
@@ -443,10 +427,6 @@ function generateDinner() {
         'dinnerDayFiveCalories'
       );
     });
-    // .catch((error) => {
-    //   console.log('error:', error);
-    //   document.location.replace(errorUrl);
-    // });
   });
 }
 
@@ -468,8 +448,6 @@ function generateMeals() {
         $('#alert-modal-container').addClass('form-none');
         generateMeals();
       });
-      // console.log(error);
-      // document.location.replace(errorUrl);
     });
 }
 
