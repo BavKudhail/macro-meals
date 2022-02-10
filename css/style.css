@@ -87,9 +87,12 @@ body {
 
 .active {
   color: #b721ff;
+
+  border: #b721ff 1px solid;
 }
 .purple-tab {
   color: #b721ff;
+  border: #b721ff 1px solid;
 }
 
 .not-allowed {
