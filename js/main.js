@@ -10,8 +10,8 @@ var fitnessApiKey = "2a61fe40cdmshb25b8249e993d82p1d55cejsn5658af22a824";
 // var edAppKey = "eddd63f4bfe096f4a9662f17302fd0fe";
 
 // Laura API key
-var edAppId = '67e33c99';
-var edAppKey = '58ed3e82ebe79a928c46d37385426a4b';
+var edAppId = "67e33c99";
+var edAppKey = "58ed3e82ebe79a928c46d37385426a4b";
 
 // submit button event listner
 $("#user-form").on("submit", generateUserSummary);
@@ -104,14 +104,14 @@ function removeForm() {
 // create | ammend | append userCard
 function renderUserDataRefresh() {
   var userCard = $(`
-    <div class="flex mx-10 mt-1 mb-5 justify-center content-center items-center inline-block px-3 py-3 bg-purple-custom text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg ">
+    <div class="flex mx-10 mt-1 mb-5 justify-center content-center items-center inline-block px-3 py-3 bg-purple-custom text-white font-medium text-sm leading-tight uppercase rounded shadow-md target-border">
     <h1 class="font-semibold content-center"> Target Calories: </h1>
     <p class="px-5 text-2xl content-center" >${localStorage.getItem(
       "calories"
     )}</p>
     </div>
     <div class="flex justify-center">
-    <div class="block p-6 rounded-lg shadow-lg bg-pink-custom  max-w-sm ">
+    <div class="block p-6 rounded-lg shadow-lg bg-pink-custom  max-w-sm">
       <h5 class="text-gray-600 text-8-xl leading-tight font-medium mb-2">Balanced Diet</h5>
         <canvas class="p-3 " id="chartDoughnut"></canvas>
     </div>

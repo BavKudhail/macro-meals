@@ -32,7 +32,7 @@
     <!-- INPUT FORM SECTION -->
     <section  id="form-container">
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-xl w-full space-y-8 bg-purple-custom px-12 py-5 rounded-lg">
+      <div class="max-w-xl w-full space-y-8 bg-purple-custom px-12 py-5 rounded-lg ">
         <!-- logo  -->
         <div>
           <img class="animate-bounce mx-auto h-12 w-auto" src="./images/Group 6.png" alt="Workflow" />
@@ -135,12 +135,13 @@
             </div>
 
           </div>
+
           <!-- generate button -->
           <div class="flex space-x-2 justify-center">
             <div>
               <button
                 type="submit"
-                class="inline-block px-10 py-3 bg-rose-500 text-white font-medium text-s leading-tight uppercase rounded-full shadow-md hover:bg-rose-600 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out"
+                class="inline-block px-10 py-3 bg-rose-500 text-white font-medium text-s leading-tight uppercase rounded-full hover:bg-rose-600"
               >
                 Generate
               </button>
@@ -249,19 +250,19 @@
     <div class="mt-4 text-gray-500 bg-purple-200">
         <ul class="flex flex-wrap -mb-px" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
             <li class="mr-2" role="presentation">
-                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-300" id="monday-tab-btn" data-tabs-target="#monday" type="button" role="tab" aria-controls="profile" aria-selected="true">Monday</button>
+                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-700" id="monday-tab-btn" data-tabs-target="#monday" type="button" role="tab" aria-controls="profile" aria-selected="true">Monday</button>
             </li>
             <li class="mr-2" role="presentation">
-                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-300" id="tuesday-tab-btn" data-tabs-target="#tuesday" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Tuesday</button>
+                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-700" id="tuesday-tab-btn" data-tabs-target="#tuesday" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Tuesday</button>
             </li>
             <li class="mr-2" role="presentation">
-                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-300" id="wednesday-tab-btn" data-tabs-target="#wednesday" type="button" role="tab" aria-controls="settings" aria-selected="false">Wednesday</button>
+                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-700" id="wednesday-tab-btn" data-tabs-target="#wednesday" type="button" role="tab" aria-controls="settings" aria-selected="false">Wednesday</button>
             </li>
             <li role="presentation">
-                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-300" id="thursday-tab-btn" data-tabs-target="#thursday" type="button" role="tab" aria-controls="contacts" aria-selected="false">Thursday</button>
+                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-700" id="thursday-tab-btn" data-tabs-target="#thursday" type="button" role="tab" aria-controls="contacts" aria-selected="false">Thursday</button>
             </li>
             <li role="presentation">
-                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-300" id="friday-tab-btn" data-tabs-target="#friday" type="button" role="tab" aria-controls="contacts" aria-selected="false">Friday</button>
+                <button class="tab inline-block py-4 px-4 text-sm font-medium text-center rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300  dark:hover:text-gray-700" id="friday-tab-btn" data-tabs-target="#friday" type="button" role="tab" aria-controls="contacts" aria-selected="false">Friday</button>
             </li>
         </ul>
     </div>
@@ -270,7 +271,7 @@
         <div class="p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="monday" role="tabpanel" aria-labelledby="profile-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Breakfast card -->
-                <div class="flex justify-end m-5 meal-card ">
+                <div class="flex justify-end m-5 meal-card expand">
                   <!-- randomise button -->
                   <button class="randomBtn" id="day1-breakfast-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -300,7 +301,7 @@
                     </div>
               </div>
               <!-- Lunch card -->
-              <div class="flex justify-end m-5 meal-card">
+              <div class="flex justify-end m-5 meal-card expand">
                 <!-- randomise button -->
                   <button class="randomBtn" id="day1-lunch-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -332,7 +333,7 @@
                 </div>
               </div>
               <!-- Dinner card -->
-              <div class="flex justify-end m-5 meal-card ">
+              <div class="flex justify-end m-5 meal-card expand">
                 <!-- randomise button -->
                   <button class="randomBtn" id="day1-dinner-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -382,7 +383,7 @@
         <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="tuesday" role="tabpanel" aria-labelledby="dashboard-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Breakfast card -->
-                <div class="flex justify-end m-5 meal-card ">
+                <div class="flex justify-end m-5 meal-card expand">
                    <!-- randomise button -->
                   <button class="randomBtn" id="day2-breakfast-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -412,7 +413,7 @@
                     </div>
               </div>
               <!-- Lunch card -->
-              <div class="flex justify-end m-5 meal-card">
+              <div class="flex justify-end m-5 meal-card expand">
                 <!-- randomise button -->
                   <button class="randomBtn" id="day2-lunch-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -444,7 +445,7 @@
                 </div>
               </div>
               <!-- Dinner card -->
-              <div class="flex justify-end m-5 meal-card ">
+              <div class="flex justify-end m-5 meal-card expand">
                 <!-- randomise button -->
                   <button class="randomBtn" id="day2-dinner-refresh-btn"><i class="fas fa-redo-alt"></i></button>
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -494,7 +495,7 @@
         <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="wednesday" role="tabpanel" aria-labelledby="settings-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Breakfast card -->
-                <div class="flex justify-end m-5 meal-card ">
+                <div class="flex justify-end m-5 meal-card expand">
                   <!-- randomise button -->
                   <button class="randomBtn" id="day3-breakfast-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -524,7 +525,7 @@
                     </div>
               </div>
               <!-- Lunch card -->
-              <div class="flex justify-end m-5 meal-card">
+              <div class="flex justify-end m-5 meal-card expand">
                 <!-- randomise button -->
                   <button class="randomBtn" id="day3-lunch-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -556,7 +557,7 @@
                 </div>
               </div>
               <!-- Dinner card -->
-              <div class="flex justify-end m-5 meal-card ">
+              <div class="flex justify-end m-5 meal-card expand">
                 <!-- randomise button -->
                   <button class="randomBtn" id="day3-dinner-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -607,7 +608,7 @@
         <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="thursday" role="tabpanel" aria-labelledby="contacts-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Breakfast card -->
-                <div class="flex justify-end m-5 meal-card ">
+                <div class="flex justify-end m-5 meal-card expand">
                   <!-- randomise button -->
                   <button class="randomBtn" id="day4-breakfast-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -637,7 +638,7 @@
                     </div>
               </div>
               <!-- Lunch card -->
-              <div class="flex justify-end m-5 meal-card">
+              <div class="flex justify-end m-5 meal-card expand">
                 <button class="randomBtn" id="day4-lunch-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
@@ -668,7 +669,7 @@
                 </div>
               </div>
               <!-- Dinner card -->
-              <div class="flex justify-end m-5 meal-card ">
+              <div class="flex justify-end m-5 meal-card expand">
                 <button class="randomBtn" id="day4-dinner-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                 <div class="rounded-lg shadow-lg bg-white max-w-sm">
                     <!-- heart button | save this recipe -->
@@ -717,7 +718,7 @@
         <div class="hidden p-4 bg-gray-50 rounded-lg bg-purple-blue-pink" id="friday" role="tabpanel" aria-labelledby="contacts-tab">
             <div class="flex flex-wrap justify-around m-20">
                 <!-- Breakfast card -->
-                <div class="flex justify-end m-5 meal-card ">
+                <div class="flex justify-end m-5 meal-card expand">
                   <!-- randomise button -->
                   <button class="randomBtn" id="day5-breakfast-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -747,7 +748,7 @@
                     </div>
               </div>
               <!-- Lunch card -->
-              <div class="flex justify-end m-5 meal-card">
+              <div class="flex justify-end m-5 meal-card expand">
                 <!-- randomise button -->
                   <button class="randomBtn" id="day5-lunch-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
@@ -779,7 +780,7 @@
                 </div>
               </div>
               <!-- Dinner card -->
-              <div class="flex justify-end m-5 meal-card ">
+              <div class="flex justify-end m-5 meal-card expand ">
                 <!-- randomise button -->
                   <button class="randomBtn" id="day5-dinner-refresh-btn"><i class="fas fa-redo-alt"></i></button>
                   <div class="rounded-lg shadow-lg bg-white max-w-sm">
