@@ -71,6 +71,11 @@ WHEN I refresh the page, my user details should be saved and the recipes I saved
 * Refactoring code
 * Polishing UI with Tailwind CSS
 
+### The Project Team
+Bav (Me)
+Grant: https://github.com/GrantRT?tab=following
+Laura: https://github.com/laurawalters1
+
 ## Obstacles
 * Thinking of a project concept that uses 2 APIs
 * Fetch limits
