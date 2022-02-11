@@ -137,10 +137,10 @@ footer {
 }
 
 .expand {
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .expand:hover {
   transform: scale(1.1);
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
