@@ -96,6 +96,10 @@ WHEN I refresh the page, my user details should be saved and the recipes I saved
 
 ## Application Screenshots
 
+![Macro-meals-screenshot-1](https://user-images.githubusercontent.com/93915846/153621185-1c09aa76-cc44-4d66-a4b4-06885bce7dae.JPG)
+![Macro-meals-screenshot-2](https://user-images.githubusercontent.com/93915846/153621217-0dd467f6-69fb-4222-aae8-f2e8c14be7ea.JPG)
+![Macro-meals-screenshot-3](https://user-images.githubusercontent.com/93915846/153621252-20ec2309-9289-4150-b88f-d05fc272bc95.JPG)
+![Macro-meals-screenshot-4](https://user-images.githubusercontent.com/93915846/153621263-ad80b7f8-dee5-4c3d-82ed-e7616ea10adf.JPG)
 
 
 
