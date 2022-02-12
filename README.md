@@ -72,7 +72,7 @@ WHEN I refresh the page, my user details should be saved and the recipes I saved
 * Polishing UI with Tailwind CSS
 
 ### The Project Team
-* Bav (Me)
+* [Bav](https://github.com/BavKudhail)
 * [Grant](https://github.com/GrantRT)
 * [Laura](https://github.com/laurawalters1)
 
