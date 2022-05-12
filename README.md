@@ -1,4 +1,4 @@
-# Macro-Meals-Project-1
+# Macro-Meals
 
 ## The Goal
 Create an app / website that takes in user values, and generates a daily calorie requirement based on the users desired health goal.
