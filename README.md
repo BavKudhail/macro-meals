@@ -91,7 +91,6 @@ WHEN I refresh the page, my user details should be saved and the recipes I saved
 * Using Github projects
 * Template literals
 * Tailwind CSS
-* 
 
 ## Future Developments
 * Show recipes based on diet preferences (keto, veg, paleo)
