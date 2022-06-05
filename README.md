@@ -47,8 +47,8 @@ WHEN I refresh the page, my user details should be saved and the recipes I saved
 * JAVASCRIPT
 * JQUERY
 * TAILWIND CSS
-* https://rapidapi.com/malaaddincelik/api/fitness-calculator/
-* https://developer.edamam.com/edamam-recipe-api
+* [Fitness Calculator API](https://rapidapi.com/malaaddincelik/api/fitness-calculator/)
+* [Edamam API](https://developer.edamam.com/edamam-recipe-api)
 
 ## Key Features
 * User input form to find out the users desired health goal and where they are currently
