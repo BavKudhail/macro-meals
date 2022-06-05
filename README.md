@@ -50,6 +50,12 @@ WHEN I refresh the page, my user details should be saved and the recipes I saved
 * https://rapidapi.com/malaaddincelik/api/fitness-calculator/
 * https://developer.edamam.com/edamam-recipe-api
 
+## Key Features
+* User input form to find out the users desired health goal and where they are currently
+* Dynamically created meal-plan for the week
+* Graph visually displaying calorie requirements
+* Ability to refresh recipes
+* Cook book to store favourite recipes
 
 ## Task / Role Breakdowns
 ### Phase One
