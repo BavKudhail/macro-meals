@@ -1,5 +1,8 @@
 # Macro-Meals
 
+## The Problem
+There is an endless amount of dieting information out there. What diet should I go on? Should I cut or bulk? How many calories should I aim for? And then... what recipes can I make in order to meet my goals. For a busy individual, this process can be tedious. We have taken the problem away. The user simply inputs their health goals and information about themselves, macro meals will convert this with a meal-plan and calorie requirements for you.
+
 ## The Goal
 Create an app / website that takes in user values, and generates a daily calorie requirement based on the users desired health goal.
 Present the user with recipes that will allow the user to meet their daily calorie requirement.
